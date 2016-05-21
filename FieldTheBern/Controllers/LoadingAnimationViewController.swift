@@ -52,6 +52,10 @@ class LoadingAnimationViewController: UIViewController {
     }
     
     func attemptTransition() {
+        
+        // Hack-
+        /*self.navigationController?.topViewController?.performSegueWithIdentifier("ShowMapSegue", sender: self)*/
+        
         if finishedAnimating && finishedAuthenticating {
             if self.authorizationSuccess {
                 self.navigationController?.topViewController?.performSegueWithIdentifier("ShowMapSegue", sender: self)

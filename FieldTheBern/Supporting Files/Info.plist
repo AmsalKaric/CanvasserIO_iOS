@@ -5,15 +5,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Field the Bern</string>
+	<string>Canvasser IO</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.berniesanders.fieldthebern</string>
+	<string>io.canvasser</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>FieldTheBern</string>
+	<string>CanvasserIo</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -27,17 +27,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb823950097719547</string>
-				<string>fieldthebern</string>
+				<string>fb1039534206140357</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>15</string>
 	<key>FacebookAppID</key>
-	<string>823950097719547</string>
+	<string>1039534206140357</string>
 	<key>FacebookDisplayName</key>
-	<string>FieldTheBern</string>
+	<string>canvasser.io</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

@@ -35,7 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
     
-        log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true)
+        // Hack- Didn't need
+        /*log.setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true)
         
         Heap.setAppId("12873725")
         #if Debug
@@ -46,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         BITHockeyManager.sharedHockeyManager().configureWithIdentifier("4c903ef8431a4cf5bd727a8d4077edec")
         BITHockeyManager.sharedHockeyManager().startManager()
-        BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation()
+        BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation()*/
         
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
         application.registerUserNotificationSettings(settings)
@@ -97,7 +98,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-        log.error("\(error)")
+        // Hack- Didn't need
+        //log.error("\(error)")
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
@@ -106,7 +108,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     private func handleCompatibilitySuccess(success: Bool) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // Hack- Didn't need this yet
+        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let updateAppViewController = storyboard.instantiateViewControllerWithIdentifier("UpdateAppViewController") as! UpdateAppViewController
         
         var topmostController = UIApplication.sharedApplication().keyWindow?.rootViewController
@@ -130,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
 
-        }
+        }*/
     }
 }
 

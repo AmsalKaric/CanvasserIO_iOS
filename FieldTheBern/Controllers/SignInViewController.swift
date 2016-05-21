@@ -124,6 +124,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pressFacebookButton(sender: UIButton) {
         facebookSpinner.startAnimating()
         facebookButton.titleLabel?.layer.opacity = 0
+        print("Facebook button press!")
         
         let login: FBSDKLoginManager = FBSDKLoginManager()
         login.loginBehavior = FBSDKLoginBehavior.Native
@@ -140,6 +141,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     let session = Session.sharedInstance
                     session.authorize(.Facebook, email: nil, password: nil, facebookToken: result.token) { (success) -> Void in
                         if success {
+                            print("success!!")
                             self.performSegueWithIdentifier("LoginFromSignIn", sender: self)
                         }
                     }

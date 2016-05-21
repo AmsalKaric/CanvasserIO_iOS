@@ -17,7 +17,9 @@ struct CompatibilityService {
 
         api.unauthorizedGet("compatibility", parameters: ["version": versionNumber]) { (data, success, error) in
 
-            if success {
+            // Hack- Make it always compatible.
+            callback(success: true, isCompatible: true)
+            /*if success {
                 // Extract our addresses into models
                 if let data = data {
                     
@@ -33,7 +35,7 @@ struct CompatibilityService {
             } else {
                 // API call failed
                 callback(success: false, isCompatible: nil)
-            }
+            }*/
         }
     }
     

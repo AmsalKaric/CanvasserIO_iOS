@@ -36,8 +36,21 @@ class Session {
             guard let password = password else { callback(false); break }
             self.oauthAuthorize(email, password: password, callback: callback)
         case .Facebook:
-            guard let token = facebookToken else { callback(false); break }
-            self.authorizeWithFacebook(token: token, callback: callback)
+            print("Trying to authorize...")
+            guard let token = facebookToken else { print("Nope"); callback(false); break }
+            print("Authorized!!")
+            print(token.userID)
+            let fbRequest = FBSDKGraphRequest(graphPath:"me", parameters: nil);
+            fbRequest.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+                if error == nil {
+                    print("User Info : \(result)")
+                } else {
+                    print("Error Getting Info \(error)");
+                }
+            }
+            // Hack-
+            //self.authorizeWithFacebook(token: token, callback: callback)
+            callback(true)
         case .Keychain:
             self.attemptAuthorizationFromKeychain(callback)
         case .Reauthorization:
