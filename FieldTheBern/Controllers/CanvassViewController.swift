@@ -27,13 +27,13 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         didSet {
             nearestAddressView.layer.cornerRadius = 8.0
             
-            let gesture = UITapGestureRecognizer(target: self, action: "tappedNearestAddressView:")
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(CanvassViewController.tappedNearestAddressView(_:)))
             nearestAddressView.addGestureRecognizer(gesture)
             
-            let swipeGesture = UISwipeGestureRecognizer(target: self, action: "swipedNearestAddressView:")
+            let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(CanvassViewController.swipedNearestAddressView(_:)))
             nearestAddressView.addGestureRecognizer(swipeGesture)
 
-            let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: "swipedNearestAddressView:")
+            let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(CanvassViewController.swipedNearestAddressView(_:)))
             leftSwipeGesture.direction = .Left
             nearestAddressView.addGestureRecognizer(leftSwipeGesture)
         }
@@ -194,26 +194,26 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         mapView?.showsUserLocation = true
         
         // Track pan gestures
-        let panRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "didDragMap:")
+        let panRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(CanvassViewController.didDragMap(_:)))
         panRecognizer.delegate = self
         self.mapView.addGestureRecognizer(panRecognizer)
         
         // Track pinch gestures
-        let pinchRecognizer: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: "didZoomMap:")
+        let pinchRecognizer: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(CanvassViewController.didZoomMap(_:)))
         pinchRecognizer.delegate = self
         self.mapView.addGestureRecognizer(pinchRecognizer)
 
         // Track tap gestures
-        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didZoomMap:")
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CanvassViewController.didZoomMap(_:)))
         tapRecognizer.numberOfTapsRequired = 2;
         tapRecognizer.delegate = self
         self.mapView.addGestureRecognizer(tapRecognizer)
         
         // Susbcribe to should reload notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldReloadMap:", name: "shouldReloadMap", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CanvassViewController.shouldReloadMap(_:)), name: "shouldReloadMap", object: nil)
         
         // Subscribe to placemark updated notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "shouldUpdatePlacemark:", name: "placemarkUpdated", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CanvassViewController.shouldUpdatePlacemark(_:)), name: "placemarkUpdated", object: nil)
         
         findMyLocation()
         

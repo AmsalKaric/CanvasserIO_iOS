@@ -68,7 +68,7 @@ class PersonDetailsTableViewController: UITableViewController, UITextFieldDelega
         self.tableView.estimatedRowHeight = 160.0
         self.edgesForExtendedLayout = UIRectEdge.None
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard:")
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PersonDetailsTableViewController.dismissKeyboard(_:)))
         gestureRecognizer.cancelsTouchesInView = false
         self.tableView.addGestureRecognizer(gestureRecognizer)
 
@@ -135,7 +135,7 @@ class PersonDetailsTableViewController: UITableViewController, UITextFieldDelega
         doneToolbar.barStyle = UIBarStyle.Default
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: Selector("hideKeyboard"))
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: #selector(PersonDetailsTableViewController.hideKeyboard))
         
         var items:[UIBarButtonItem] = []
         items.append(flexSpace)

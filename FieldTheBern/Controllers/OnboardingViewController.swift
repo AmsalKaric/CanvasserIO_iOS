@@ -59,7 +59,7 @@ class OnboardingViewController: UIViewController, UIPageViewControllerDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topButton = UIBarButtonItem.init(title: "Skip", style: UIBarButtonItemStyle.Plain, target: self, action: "skipOrLogin:")
+        topButton = UIBarButtonItem.init(title: "Skip", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(OnboardingViewController.skipOrLogin(_:)))
         self.navigationItem.rightBarButtonItem = topButton
         self.navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato-Medium", size: 16)!], forState: UIControlState.Normal)
         
@@ -134,7 +134,7 @@ class OnboardingViewController: UIViewController, UIPageViewControllerDataSource
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         var index = viewControllers.indexOf(viewController)!
 
-        index++
+        index += 1
         
         
         if pagesRange ~= index {
@@ -148,7 +148,7 @@ class OnboardingViewController: UIViewController, UIPageViewControllerDataSource
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         var index = viewControllers.indexOf(viewController)!
 
-        index--
+        index -= 1
 
         if pagesRange ~= index {
             

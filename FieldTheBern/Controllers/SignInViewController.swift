@@ -43,11 +43,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
 
         // Change navigation bar buttons
-        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
+        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(SignInViewController.cancel(_:)))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato-Medium", size: 16)!], forState: UIControlState.Normal)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -62,8 +62,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func startKeyboardObserver(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignInViewController.keyboardWasShown(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SignInViewController.keyboardWasHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     private func stopKeyboardObserver() {

@@ -15,7 +15,7 @@ class CacheManager: NSObject {
     
     private override init() {
         super.init()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "lowMemoryWarningRecieved:", name: UIApplicationDidReceiveMemoryWarningNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CacheManager.lowMemoryWarningRecieved(_:)), name: UIApplicationDidReceiveMemoryWarningNotification, object: nil)
     }
     
     deinit {

@@ -40,7 +40,7 @@ class PersonDetailsViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
+        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(PersonDetailsViewController.cancel(_:)))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato-Medium", size: 16)!], forState: UIControlState.Normal)
     }

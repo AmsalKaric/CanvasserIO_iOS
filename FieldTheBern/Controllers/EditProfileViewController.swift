@@ -56,7 +56,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showCancelButton() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "pressDone:")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(EditProfileViewController.pressDone(_:)))
     }
     
     func loadUser() {

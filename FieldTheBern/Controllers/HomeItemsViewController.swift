@@ -16,7 +16,7 @@ class HomeItemsViewController: ItemsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didBecomeActive:", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeItemsViewController.didBecomeActive(_:)), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
         self.items = superlevelItemModels()
         collectionView?.reloadData()

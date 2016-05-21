@@ -65,14 +65,14 @@ class SignUpFormViewController: UIViewController, UITextFieldDelegate, UINavigat
         // Do any additional setup after loading the view.
         
         // Change navigation bar buttons
-        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
+        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(SignUpFormViewController.cancel(_:)))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato-Medium", size: 16)!], forState: UIControlState.Normal)
         
         // Keyboard notification listeners
         let center = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: "keyboardWasHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        center.addObserver(self, selector: #selector(SignUpFormViewController.keyboardWasShown(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        center.addObserver(self, selector: #selector(SignUpFormViewController.keyboardWasHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         // Fill out form if we have Facebook information
         firstNameField.text = firstName
@@ -99,7 +99,7 @@ class SignUpFormViewController: UIViewController, UITextFieldDelegate, UINavigat
             self.profileImage.image = UIImage(named: "default_thumb")
         }
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpFormViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
     }

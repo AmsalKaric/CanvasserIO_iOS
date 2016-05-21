@@ -74,7 +74,7 @@ class ConversationViewController: UIViewController, UIGestureRecognizerDelegate,
         savedGestureRecognizerDelegate = self.navigationController?.interactivePopGestureRecognizer?.delegate
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancel:")
+        let backButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: #selector(ConversationViewController.cancel(_:)))
         self.navigationItem.leftBarButtonItem = backButton
         self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato-Medium", size: 16)!], forState: UIControlState.Normal)
     }
@@ -179,7 +179,7 @@ class ConversationViewController: UIViewController, UIGestureRecognizerDelegate,
         switch section {
         case 0:
             var extraRows = 1
-            if !peopleAreHome { extraRows++ } // Show the extra row for saying someone's not home
+            if !peopleAreHome { extraRows += 1 } // Show the extra row for saying someone's not home
             
             return people.count + extraRows
         case 1:
