@@ -475,6 +475,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func fetchAddresses(onSuccess: ((success: Bool, errorTitle:String?, errorMessage:String?) -> Void)? = nil)  {
+        print(#function)
         lastUpdated = NSDate()
         
         let distance = mapView.getFurthestDistanceFromRegionCenter()
@@ -485,6 +486,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             
             if success {
                 if let addresses = addressResults {
+                    //print(addresses)
                     
                     var annotationsToAdd: [MKAnnotation] = []
                     var annotationsToRemove: [MKAnnotation] = []
@@ -520,6 +522,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     }
                 }
             } else {
+                print("fetchAddresses failed success")
                 // API error
                 if let apiError = error {
                     self.handleError(apiError)
@@ -535,7 +538,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     var closestAddress: Address?
     
     func updateClosestLocation()  {
-
+        print(#function)
         dispatch_async(dispatch_get_main_queue()) {
 
             var closestLocations: [(distance: CLLocationDistance?, address: Address)] = []

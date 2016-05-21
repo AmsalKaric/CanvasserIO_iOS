@@ -54,25 +54,33 @@ struct AddressService {
     
     func getAddresses(latitude: CLLocationDegrees, longitude: CLLocationDegrees, radius: Double, callback: (([Address]?, Bool, APIError?) -> Void)) {
         
-        api.get("addresses", parameters: ["latitude": latitude, "longitude": longitude, "radius": radius]) { (data, success, error) in
+        //api.get("addresses", parameters: ["lat": "44.9206935", "longitude": "-73.1290229", "radius": radius]) { (data, success, error) in
+        api.get("addresses", parameters: ["city": "burlington"]) { (data, success, error) in
             
             if success {
                 // Extract our addresses into models
                 if let data = data {
                     
                     let json = JSON(data: data)
+                    //print(json)
                     
                     var addressesArray: [Address] = []
-                    
-                    for (_, included) in json["data"] {
+                    //Hack- Fixed API address fetching
+                    var i=0
+                    for (_, included) in json {
+                        if i == 100 {
+                            break
+                        }
+                        i+=1
+                        //print(included)
                         
                         // Check for addresses only
-                        let type = included["type"].string
+                        //let type = included["type"].string
                         
-                        if type == "addresses" {
-                            let newAddress = Address(id: included["id"].string, addressJSON: included["attributes"])
+                        //if type == "addresses" {
+                            let newAddress = Address(id: included["aid"].string, addressJSON: included)
                             addressesArray.append(newAddress)
-                        }
+                        //}
                     }
                     
                     callback(addressesArray, success, nil)

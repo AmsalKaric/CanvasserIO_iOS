@@ -19,22 +19,29 @@ class HTTP {
     private let appVersionProvider = AppVersionProvider()
     
     func authorizedRequest(method: Alamofire.Method, _ url: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, callback: HTTPCallback) {
-
-        session.authorize(.Reauthorization) { (success) -> Void in
-            if success {
-                if let accessToken = self.session.oauth2?.accessToken {
+        
+        // Hack- Removed authorization
+        //session.authorize(.Reauthorization) { (success) -> Void in
+        //    if success {
+                //if let accessToken = self.session.oauth2?.accessToken {
+                let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6IjEiLCJleHAiOjE0NjM4NjM3OTAsImZiaWQiOiIxMjYyMzAxMDc3NzcyNDQiLCJpYXQiOjE0NjM4NjI4OTB9.vxxmgeHwq-AhUdgo0TC8tEVeFea0vBAAcj8xMoI62M0"
                     let headers = [
-                        "User-Agent": self.appVersionProvider.versionString(),
-                        "Authorization": "Bearer \(accessToken)"
+                        //"User-Agent": self.appVersionProvider.versionString(),
+                        //"Authorization": "Bearer \(accessToken)"
+                        "authorization": "\(accessToken)"
                     ]
                     Alamofire.request(method, url, parameters: parameters, encoding: encoding, headers: headers)
                         .validate()
                         .responseJSON { response in
+                            //print(response.request)  // original URL request
+                            //print(response.response) // URL response
+                            //print(response.data)     // server data
+                            //print(response.result)   // result of response serialization
                             callback(response)
                     }
-                }
-            }
-        }
+                //}
+        //    }
+        //}
     }
     
     func unauthorizedRequest(method: Alamofire.Method, _ url: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, callback: HTTPCallback) {

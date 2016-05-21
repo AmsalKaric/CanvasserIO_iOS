@@ -12,7 +12,7 @@ import Foundation
 struct APIURL {
     
     #if Local
-        static let url = "http://api.lvh.me:3000"
+        static let url = "https://api.canvasser.io/api/v1"
     #endif
 
     #if Staging

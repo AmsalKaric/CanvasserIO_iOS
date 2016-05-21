@@ -126,13 +126,15 @@ struct Address {
 
     init(id: String?, addressJSON: JSON) {
         self.id = id
-        latitude = addressJSON["latitude"].number as? CLLocationDegrees
-        longitude = addressJSON["longitude"].number as? CLLocationDegrees
-        street1 = addressJSON["street_1"].string
+        //print(addressJSON["lat"])
+        //print(addressJSON["lat"].numberValue)
+        latitude = addressJSON["lat"].numberValue as CLLocationDegrees
+        longitude = addressJSON["longitude"].numberValue as CLLocationDegrees
+        street1 = addressJSON["street"].string
         street2 = addressJSON["street_2"].string
         city = addressJSON["city"].string
         stateCode = addressJSON["state_code"].string
-        zipCode = addressJSON["zip_code"].string
+        zipCode = addressJSON["postal"].string
         
         if let dateString = addressJSON["visited_at"].string {
             visitedAt = NSDate.dateFromISOString(dateString)
