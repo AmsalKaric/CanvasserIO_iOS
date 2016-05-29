@@ -39,19 +39,25 @@ struct VisitJSON {
         var peopleDictionaries: [[String: AnyObject]] = []
         if let people = self.people {
             for person in people {
-                let personDictionary = PersonJSON(person: person).include
+                let personDictionary = PersonJSON(person: person).attributes
                 peopleDictionaries.append(personDictionary)
             }
         }
         
         let parameters: JSON = [
+            "visit_guid": "abc-def-ghi-jkl-mno-pqr-stu-vwx-yz",
+            "duration_sec": 180,
+            "address_id": 69,
+            "persons": peopleDictionaries
+        ]
+        /*let parameters: JSON = [
             "data": [
                 "attributes": [
                     "duration_sec": duration
                 ]
             ],
             "included": peopleDictionaries + addressDictionaries
-        ]
+        ]*/
         
         json = parameters
     }

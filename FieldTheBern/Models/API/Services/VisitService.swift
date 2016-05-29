@@ -18,7 +18,10 @@ struct VisitService {
         
         let parameters = VisitJSON(duration: duration, address: address, people: people, askedToLeave: askedToLeave).json
 
-        api.post("visits", parameters: parameters.object as? [String : AnyObject], encoding: .JSON) { (data, success, error) in
+        print("Performing post with JSON array")
+        print(parameters)
+        
+        api.post("canvassVisits", parameters: parameters.object as? [String : AnyObject], encoding: .JSON) { (data, success, error) in
             if success {
                 // Extract our visit into a model
                 if let data = data {
@@ -29,6 +32,7 @@ struct VisitService {
                     
                     callback(visit, success, nil)
                 }
+                print("Successful post!")
             } else {
                 callback(nil, success, error)
             }

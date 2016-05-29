@@ -9,16 +9,22 @@
 import UIKit
 import MapKit
 
-class AddressPointPinAnnotation: MKAnnotationView {
+@objc protocol pinCalloutDelegate{
+    optional func tappedCallout(annotation: MKAnnotationView)
+}
+
+class AddressPointPinAnnotation: MKAnnotationView, UIGestureRecognizerDelegate {
 
     class var reuseIdentifier:String {
         return "mapPin"
     }
+    var calloutDelegate: pinCalloutDelegate?
     
     private var containerView: UIView?
     private var calloutView: AddressPointAnnotationView?
     private var triangleView: UIView?
     private var hitOutside:Bool = true
+    var address: String = ""
     
     var preventDeselection:Bool {
         return !hitOutside
@@ -64,6 +70,10 @@ class AddressPointPinAnnotation: MKAnnotationView {
             if let lastVisited = pinAnnotation.lastVisited {
                 calloutView!.lastVisitedAtLabel.text = lastVisited
             }
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(AddressPointPinAnnotation.calloutTapped(_:)))
+            tap.delegate = self
+            calloutView!.addGestureRecognizer(tap)
             
             calloutView!.frame = CGRect(
                 origin: CGPoint(
@@ -132,6 +142,11 @@ class AddressPointPinAnnotation: MKAnnotationView {
                 self.triangleView = nil
             }
         }
+    }
+    
+    func calloutTapped(sender: UITapGestureRecognizer?) {
+        print("tapped the callout!!")
+        self.calloutDelegate?.tappedCallout!(self)
     }
     
     override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {

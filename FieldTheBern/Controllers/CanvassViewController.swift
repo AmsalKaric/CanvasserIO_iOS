@@ -12,7 +12,7 @@ import Dollar
 import SwiftyJSON
 import SCLAlertView
 
-class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate {
+class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, pinCalloutDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -163,7 +163,9 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             displayLocationServicesAlert()
         }
         
-        self.performSegueWithIdentifier("AddLocation", sender: self)
+        //Hack- new canvass view controller
+        //self.performSegueWithIdentifier("AddLocation", sender: self)
+        self.performSegueWithIdentifier("CanvassVisit", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -176,6 +178,26 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     rootController.previousLocation = previousLocation
                     rootController.previousPlacemark = previousPlacemark
                     rootController.userLocation = currentLocation
+                    
+                    // Reset the previous location
+                    self.previousLocation = currentLocation
+                }
+            }
+        }
+        if segue.identifier == "CanvassVisit" {
+
+            if let destinationViewController = segue.destinationViewController as? UINavigationController {
+                
+                if let rootController = destinationViewController.viewControllers[0] as? ConversationViewController {
+                    
+                    let currentLocation = locationManager.location
+                    
+                    let pinSender = sender as? AddressPointPinAnnotation
+                    
+                    let address = Address(latitude: currentLocation!.coordinate.latitude, longitude: currentLocation!.coordinate.longitude, street1: pinSender?.address, street2: "11", city: "Burlington", stateCode: "VT", zipCode: "05401", bestResult: .NotVisited, lastResult: .Unknown)
+                    
+                    rootController.location = currentLocation
+                    rootController.address = address
                     
                     // Reset the previous location
                     self.previousLocation = currentLocation
@@ -430,6 +452,18 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    // When user taps on the disclosure button you can perform a segue to navigate to another view controller
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("Tapped it!!")
+        if control == view.rightCalloutAccessoryView{
+            print(view.annotation!.title) // annotation's title
+            print(view.annotation!.subtitle) // annotation's subttitle
+            
+            //Perform a segue here to navigate to another viewcontroller
+            // On tapping the disclosure button you will get here
+        }
+    }
+    
     func didDragMap(gestureRecognizer: UIGestureRecognizer) {
         if gestureRecognizer.state == UIGestureRecognizerState.Began {
             locationButtonState = .None
@@ -603,7 +637,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         if annotation.isKindOfClass(AddressPointAnnotation) {
             let addressAnnotation = annotation as? AddressPointAnnotation
             
-            var pinAnnotation = mapView.dequeueReusableAnnotationViewWithIdentifier("Pin")
+            var pinAnnotation = mapView.dequeueReusableAnnotationViewWithIdentifier("Pin") as? AddressPointPinAnnotation
 
             if pinAnnotation == nil {
                 pinAnnotation = AddressPointPinAnnotation.init(annotation:annotation)
@@ -611,7 +645,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 // if you want to use a button, you'll need to pass in a delegate and modify the hitTest calls -nick D.
                 
 //                pinAnnotation?.leftCalloutAccessoryView = customView
-
+                pinAnnotation?.calloutDelegate = self;
             }
             
             pinAnnotation?.image = addressAnnotation?.image
@@ -640,9 +674,15 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
+    func tappedCallout(annotation: MKAnnotationView) {
+        print("Callout tapped")
+        performSegueWithIdentifier("CanvassVisit", sender: annotation)
+    }
+    
     func addressToPin(address: Address) -> AddressPointAnnotation {
         let dropPin = AddressPointAnnotation()
 
+        dropPin.address = address
         dropPin.id = address.id
         dropPin.result = address.displayedResult
         dropPin.coordinate = address.coordinate!

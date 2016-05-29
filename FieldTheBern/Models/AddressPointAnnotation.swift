@@ -11,6 +11,7 @@ import MapKit
 
 class AddressPointAnnotation: MKPointAnnotation {
     
+    var address: Address?
     var id: String?
     var result: VisitResult?
     var image: UIImage?

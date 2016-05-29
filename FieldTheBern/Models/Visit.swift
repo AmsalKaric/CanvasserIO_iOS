@@ -14,15 +14,9 @@ struct Visit {
     let totalPoints: Int
     
     init(json: JSON) {
-        let data = json["data"]
-
-        self.id = data["id"].string
-        let attributes = data["attributes"]
-
-        if let points = attributes["total_points"].number {
-            totalPoints = points as Int
-        } else {
-            totalPoints = 0
-        }
+        self.id = json["id"].string
+        self.totalPoints = json["total_points"].intValue
+        
+        print("Made visit with id: \(self.id) and points: \(self.totalPoints)")
     }
 }
