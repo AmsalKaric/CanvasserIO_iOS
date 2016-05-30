@@ -17,7 +17,9 @@ class API {
     
     func get(endpoint: String, parameters: [String: AnyObject]?, callback: APIResponse) {
         let url = baseURL + "/" + endpoint
+        print("trying get: \(url)")
         http.authorizedRequest(.GET, url, parameters: parameters) { response in
+            
             switch response.result {
             case .Success:
                 callback(response.data, true, nil)

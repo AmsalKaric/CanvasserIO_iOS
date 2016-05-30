@@ -508,7 +508,18 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         }
     }
     
+    func foo() -> Int {
+        struct Holder {
+            static var timesCalled = 0
+        }
+        Holder.timesCalled += 1
+        return Holder.timesCalled
+    }
+    
     func fetchAddresses(onSuccess: ((success: Bool, errorTitle:String?, errorMessage:String?) -> Void)? = nil)  {
+        if foo() > 1 {
+            return
+        }
         print(#function)
         lastUpdated = NSDate()
         
@@ -556,7 +567,8 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     }
                 }
             } else {
-                print("fetchAddresses failed success")
+                print("fetchAddresses failed to return success")
+                print(error)
                 // API error
                 if let apiError = error {
                     self.handleError(apiError)

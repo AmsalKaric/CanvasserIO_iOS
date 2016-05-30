@@ -55,14 +55,14 @@ struct AddressService {
     func getAddresses(latitude: CLLocationDegrees, longitude: CLLocationDegrees, radius: Double, callback: (([Address]?, Bool, APIError?) -> Void)) {
         
         //api.get("addresses", parameters: ["lat": "44.9206935", "longitude": "-73.1290229", "radius": radius]) { (data, success, error) in
-        api.get("addresses", parameters: ["city": "burlington"]) { (data, success, error) in
+        api.get("addresses/\(latitude)/\(longitude)", parameters: [:]) { (data, success, error) in
             
             if success {
                 // Extract our addresses into models
                 if let data = data {
                     
                     let json = JSON(data: data)
-                    //print(json)
+                    print(json)
                     
                     var addressesArray: [Address] = []
                     //Hack- Fixed API address fetching
