@@ -141,7 +141,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     let session = Session.sharedInstance
                     session.authorize(.Facebook, email: nil, password: nil, facebookToken: result.token) { (success) -> Void in
                         if success {
-                            print("success!!")
+                            print("success in FB login!!")
                             self.performSegueWithIdentifier("LoginFromSignIn", sender: self)
                         }
                     }

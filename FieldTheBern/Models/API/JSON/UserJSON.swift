@@ -16,6 +16,12 @@ struct UserJSON {
     init(firstName: String?, lastName: String?, email: String?) {
         
         let parameters: JSON = [
+            "first_name": firstName ?? NSNull(),
+            "last_name": lastName ?? NSNull(),
+            "email": email ?? NSNull(),
+        ]
+        
+        /*let parameters: JSON = [
             "data": [
                 "attributes": [
                     "first_name": firstName ?? NSNull(),
@@ -23,7 +29,7 @@ struct UserJSON {
                     "email": email ?? NSNull(),
                 ]
             ]
-        ]
+        ]*/
         
         self.json = parameters
     }

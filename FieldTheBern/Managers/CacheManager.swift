@@ -39,7 +39,9 @@ class CacheManager: NSObject {
         
         // Prevents long strings from being shortened (tail gets cut) causing duplicate file names for long urls
         if length > 20 {
-            let range = Range(start: str.startIndex.advancedBy(length - 20), end: str.endIndex)
+            //Hack- fixed deprecated use of range
+            let range = str.startIndex.advancedBy(length - 20) ..< str.endIndex
+            //let range = Range(start: str.startIndex.advancedBy(length - 20), end: str.endIndex)
             return str.substringWithRange(range)
         }
         else {

@@ -62,7 +62,7 @@ struct AddressService {
                 if let data = data {
                     
                     let json = JSON(data: data)
-                    print(json)
+                    //print(json)
                     
                     var addressesArray: [Address] = []
                     //Hack- Fixed API address fetching
@@ -72,13 +72,12 @@ struct AddressService {
                             break
                         }
                         i+=1
-                        //print(included)
                         
                         // Check for addresses only
                         //let type = included["type"].string
                         
                         //if type == "addresses" {
-                            let newAddress = Address(id: included["aid"].string, addressJSON: included)
+                            let newAddress = Address(id: String(included["aid"].intValue), addressJSON: included)
                             addressesArray.append(newAddress)
                         //}
                     }

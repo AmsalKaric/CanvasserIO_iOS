@@ -17,7 +17,7 @@ class API {
     
     func get(endpoint: String, parameters: [String: AnyObject]?, callback: APIResponse) {
         let url = baseURL + "/" + endpoint
-        print("trying get: \(url)")
+        print("trying get: \(url) with parameters: \(parameters)")
         http.authorizedRequest(.GET, url, parameters: parameters) { response in
             
             switch response.result {
@@ -31,6 +31,7 @@ class API {
     
     func post(endpoint: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, callback: APIResponse) {
         let url = baseURL + "/" + endpoint
+        print("trying post: \(url) with parameters: \(parameters)")
                 
         if let parameters = parameters {
             http.authorizedRequest(.POST, url, parameters: parameters, encoding: encoding) { response in
@@ -46,6 +47,7 @@ class API {
 
     func patch(endpoint: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, callback: APIResponse) {
         let url = baseURL + "/" + endpoint
+        print("trying patch: \(url) with parameters: \(parameters)")
         
         if let parameters = parameters {
             http.authorizedRequest(.PATCH, url, parameters: parameters, encoding: encoding) { response in
@@ -58,9 +60,26 @@ class API {
             }
         }
     }
+    
+    func put(endpoint: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .JSON, callback: APIResponse) {
+        let url = baseURL + "/" + endpoint
+        print("trying put: \(url) with parameters: \(parameters)")
+        
+        if let parameters = parameters {
+            http.authorizedRequest(.PUT, url, parameters: parameters, encoding: encoding) { response in
+                switch response.result {
+                case .Success:
+                    callback(response.data, true, nil)
+                case .Failure(let error):
+                    self.handleAPIFailure(response: response, error: error, callback: callback)
+                }
+            }
+        }
+    }
 
     func unauthorizedGet(endpoint: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .URL, callback: APIResponse) {
         let url = baseURL + "/" + endpoint
+        print("trying unauthorized get: \(url) with parameters: \(parameters)")
         
         http.unauthorizedRequest(.GET, url, parameters: parameters, encoding: encoding) { response in
             switch response.result {
@@ -74,6 +93,7 @@ class API {
 
     func unauthorizedPost(endpoint: String, parameters: [String: AnyObject]?, encoding: ParameterEncoding = .JSON, callback: APIResponse) {
         let url = baseURL + "/" + endpoint
+        print("trying unauthorized post: \(url) with parameters: \(parameters)")
         
         if let parameters = parameters {
             http.unauthorizedRequest(.POST, url, parameters: parameters, encoding: encoding) { response in

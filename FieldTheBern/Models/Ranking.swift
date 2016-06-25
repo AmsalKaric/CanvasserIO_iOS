@@ -11,7 +11,7 @@ import SwiftyJSON
 
 struct Ranking {
     
-    let userId: String?
+    let userId: Int?
     let rank: Int?
     let score: Int?
 
@@ -30,15 +30,15 @@ struct Ranking {
     }
     
     init(json: JSON) {
-        self.userId = json["relationships"]["user"]["data"]["id"].string
+        self.userId = json["id"].int
 
-        if let rankNumber = json["attributes"]["rank"].number {
+        if let rankNumber = json["6"].number {
             self.rank = Int(rankNumber)
         } else {
             self.rank = nil
         }
         
-        if let scoreNumber = json["attributes"]["score"].number {
+        if let scoreNumber = json["total_points"].number {
             self.score = Int(scoreNumber)
         } else {
             self.score = 0

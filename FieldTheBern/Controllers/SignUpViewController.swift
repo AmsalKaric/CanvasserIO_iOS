@@ -59,6 +59,7 @@ class SignUpViewController: UIViewController {
                         if userExists {
                             session.authorize(.Facebook, email: nil, password: nil, facebookToken: token) { (success) -> Void in
                                 if success {
+                                    print("success in FB login!!")
                                     self.performSegueWithIdentifier("Login", sender: self)
                                 }
                             }

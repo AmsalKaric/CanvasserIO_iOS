@@ -33,8 +33,8 @@ struct VisitJSON {
             self.address.bestCanvassResponseString = nil
         }
         
-        let addressDictionary: [String: AnyObject] = AddressJSON(address: self.address).include
-        let addressDictionaries: [[String: AnyObject]] = [addressDictionary]
+        //let addressDictionary: [String: AnyObject] = AddressJSON(address: self.address).include
+        //let addressDictionaries: [[String: AnyObject]] = [addressDictionary]
                 
         var peopleDictionaries: [[String: AnyObject]] = []
         if let people = self.people {
@@ -45,6 +45,7 @@ struct VisitJSON {
         }
         
         let parameters: JSON = [
+            "campaign_id": "1",
             "visit_guid": "abc-def-ghi-jkl-mno-pqr-stu-vwx-yz",
             "duration_sec": 180,
             "address_id": 69,

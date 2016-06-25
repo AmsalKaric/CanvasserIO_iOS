@@ -194,7 +194,9 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     
                     let pinSender = sender as? AddressPointPinAnnotation
                     
-                    let address = Address(latitude: currentLocation!.coordinate.latitude, longitude: currentLocation!.coordinate.longitude, street1: pinSender?.address, street2: "11", city: "Burlington", stateCode: "VT", zipCode: "05401", bestResult: .NotVisited, lastResult: .Unknown)
+                    let address = pinSender?.address
+                    
+                    print("tapped this one: \(address)")
                     
                     rootController.location = currentLocation
                     rootController.address = address
@@ -658,6 +660,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 
 //                pinAnnotation?.leftCalloutAccessoryView = customView
                 pinAnnotation?.calloutDelegate = self;
+                pinAnnotation?.address = addressAnnotation?.address
             }
             
             pinAnnotation?.image = addressAnnotation?.image
@@ -693,6 +696,8 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     func addressToPin(address: Address) -> AddressPointAnnotation {
         let dropPin = AddressPointAnnotation()
+        
+        //print("pinning address \(address)")
 
         dropPin.address = address
         dropPin.id = address.id

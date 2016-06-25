@@ -15,8 +15,8 @@ struct Address {
     let id: String?
     let latitude: CLLocationDegrees?
     let longitude: CLLocationDegrees?
-    let street1: String?
-    let street2: String?
+    let address: String?
+    let street: String?
     let city: String?
     let stateCode: String?
     let zipCode: String?
@@ -29,11 +29,11 @@ struct Address {
 
     var title: String {
         get {
-            if let street1 = street1, street2 = street2 {
-                let string = street1 + " " + street2
+            if let address = address, street = street {
+                let string = address + " " + street
                 return string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-            } else if let street1 = street1 {
-                return street1
+            } else if let address = address {
+                return address
             } else {
                 return ""
             }
@@ -130,8 +130,8 @@ struct Address {
         //print(addressJSON["lat"].numberValue)
         latitude = addressJSON["lat"].numberValue as CLLocationDegrees
         longitude = addressJSON["longitude"].numberValue as CLLocationDegrees
-        street1 = addressJSON["street"].string
-        street2 = addressJSON["street_2"].string
+        address = addressJSON["address"].string
+        street = addressJSON["street"].string
         city = addressJSON["city"].string
         stateCode = addressJSON["state_code"].string
         zipCode = addressJSON["postal"].string
@@ -195,12 +195,12 @@ struct Address {
         }
     }
     
-    init(latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, street1: String?, street2: String?, city: String?, stateCode: String?, zipCode: String?, bestResult: VisitResult, lastResult: VisitResult) {
+    init(latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, address: String?, street: String?, city: String?, stateCode: String?, zipCode: String?, bestResult: VisitResult, lastResult: VisitResult) {
         self.id = nil
         self.latitude = latitude
         self.longitude = longitude
-        self.street1 = street1
-        self.street2 = street2
+        self.address = address
+        self.street = street
         self.city = city
         self.stateCode = stateCode
         self.zipCode = zipCode

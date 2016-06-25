@@ -16,8 +16,8 @@ struct AddressJSON {
     let id: AnyObject
     let latitude: AnyObject
     let longitude: AnyObject
-    let street1: AnyObject
-    let street2: AnyObject
+    let address1: AnyObject
+    let street: AnyObject
     let city: AnyObject
     let stateCode: AnyObject
     let zipCode: AnyObject
@@ -27,8 +27,8 @@ struct AddressJSON {
         id = address.id ?? NSNull()
         latitude = address.latitude ?? NSNull()
         longitude = address.longitude ?? NSNull()
-        street1 = address.street1 ?? NSNull()
-        street2 = address.street2 ?? NSNull()
+        address1 = address.address ?? NSNull()
+        street = address.street ?? NSNull()
         city = address.city ?? NSNull()
         stateCode = address.stateCode ?? NSNull()
         zipCode = address.zipCode ?? NSNull()
@@ -37,8 +37,8 @@ struct AddressJSON {
         attributes = [
             "latitude": latitude,
             "longitude": longitude,
-            "street_1": street1,
-            "street_2": street2,
+            "address": address1,
+            "street": street,
             "city": city,
             "state_code": stateCode,
             "zip_code": zipCode,

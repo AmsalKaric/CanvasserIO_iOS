@@ -202,6 +202,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                     })
                 } else {
                     if let apiError = error {
+                        print(error)
                         self.handleError(apiError)
                     }
                 }
@@ -320,7 +321,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func showFacebookInviteDialog() {
         let content: FBSDKAppInviteContent = FBSDKAppInviteContent()
-        content.appLinkURL = NSURL(string: "https://fb.me/835938513187372")
+        content.appLinkURL = NSURL(string: "https://fb.me/1039534206140357")
         FBSDKAppInviteDialog.showFromViewController(self, withContent: content, delegate: self)
 //        FBSDKAppInviteDialog.showWithContent(content, delegate: self)
     }
@@ -329,7 +330,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if MFMessageComposeViewController.canSendText() {
             let messageVC = MFMessageComposeViewController()
                 
-            messageVC.body = "Help canvass for Bernie Sanders on your phone. Download for iOS and Android at https://fieldthebern.com"
+            messageVC.body = "Help canvass on your phone. Download for iOS at https://canvasser.io"
             messageVC.messageComposeDelegate = self
             
             self.presentViewController(messageVC, animated: false, completion: nil)
@@ -340,7 +341,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if MFMailComposeViewController.canSendMail() {
             let mailVC = MFMailComposeViewController()
             
-            mailVC.setMessageBody("Help canvass for Bernie Sanders on your phone. Download for iOS and Android at https://fieldthebern.com", isHTML: false)
+            mailVC.setMessageBody("Help canvass on your phone. Download for iOS at https://canvasser.io", isHTML: false)
             mailVC.mailComposeDelegate = self
             
             self.presentViewController(mailVC, animated: false, completion: nil)

@@ -325,7 +325,7 @@ class AddAddressViewController: UIViewController, UITableViewDelegate, UITextFie
             
             isSubmitting()
             
-            let address = Address(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, street1: streetAddress.text, street2: apartmentNumber.text, city: placemark.locality, stateCode: placemark.administrativeArea, zipCode: placemark.postalCode, bestResult: .NotVisited, lastResult: .Unknown)
+            let address = Address(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, address: streetAddress.text, street: apartmentNumber.text, city: placemark.locality, stateCode: placemark.administrativeArea, zipCode: placemark.postalCode, bestResult: .NotVisited, lastResult: .Unknown)
             
             AddressService().getAddress(address, callback: { (returnedAddress, people, success, error) -> Void in
                 

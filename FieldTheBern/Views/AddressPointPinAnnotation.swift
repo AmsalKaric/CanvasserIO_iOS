@@ -24,7 +24,8 @@ class AddressPointPinAnnotation: MKAnnotationView, UIGestureRecognizerDelegate {
     private var calloutView: AddressPointAnnotationView?
     private var triangleView: UIView?
     private var hitOutside:Bool = true
-    var address: String = ""
+    var addressS: String = ""
+    var address: Address? = nil
     
     var preventDeselection:Bool {
         return !hitOutside

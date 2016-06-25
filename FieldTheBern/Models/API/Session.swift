@@ -11,6 +11,7 @@ import p2_OAuth2
 import KeychainAccess
 import FBSDKLoginKit
 import Parse
+import SwiftyJSON
 
 enum SessionType {
     case Email, Facebook, Keychain, Reauthorization
@@ -27,7 +28,7 @@ class Session {
 
     var oauth2: OAuth2PasswordGrant?
     
-    private let keychain = Keychain(service: "com.groundgameapp.api")
+    private let keychain = Keychain(service: "io.canvasser")
     
     func authorize(type: SessionType, email: String? = nil, password: String? = nil, facebookToken: FBSDKAccessToken? = nil, callback: SuccessResponse) {
         switch type {
@@ -49,8 +50,8 @@ class Session {
                 }
             }
             // Hack-
-            //self.authorizeWithFacebook(token: token, callback: callback)
-            callback(true)
+            self.authorizeWithFacebook(token: token, callback: callback)
+            //callback(true)
         case .Keychain:
             self.attemptAuthorizationFromKeychain(callback)
         case .Reauthorization:
@@ -78,6 +79,7 @@ class Session {
     }
     
     private func authorizeWithFacebook(token token: FBSDKAccessToken, callback: SuccessResponse) {
+        print(#function)
         
         // Reset other login information if this is a different facebook user
         if let facebookId = keychain["facebookId"] {
@@ -86,15 +88,23 @@ class Session {
                 keychain["password"] = nil
             }
         }
+        print("setting keychain...")
 
         keychain["facebookId"] = token.userID
         keychain["facebookAccessToken"] = token.tokenString
         keychain["lastAuthentication"] = "facebook"
+        
+        print("keychain facebookId: \(keychain["facebookId"])")
+        
+        self.attemptAuthorizationFromKeychain(callback)
 
-        self.oauthAuthorize("facebook", password: token.tokenString, callback: callback)
+        //Hack- commented out
+        //self.oauthAuthorize("facebook", password: token.tokenString, callback: callback)
     }
     
     private func oauthAuthorize(email: String, password: String, callback: SuccessResponse) {
+        print(#function)
+        
         let settings = [
             "client_id": OAuth.ClientId,
             "client_secret": OAuth.ClientSecret,
@@ -132,12 +142,42 @@ class Session {
     }
         
     private func authorizeWithFacebook(tokenString tokenString: String, callback: SuccessResponse) {
+        print(#function)
+        
+        let api = API()
+        
+        let parameters: [String: AnyObject] = [
+            "UserToken": tokenString
+        ]
+        //Make request to auth endpoint.
+        api.post("auth/facebook", parameters: parameters, encoding: .JSON) { (data, success, error) in
+            if success {
+                // Extract our visit into a model
+                if let data = data {
+                    
+                    let json = JSON(data: data)
+                    let saveToken = json["token"]
+                    print("Got saveToken: '\(saveToken)'")
+                    callback(success)
+                }
+            } else {
+                callback(success)
+            }
+        }
+        
+        //Grab token and store it for future use.
+        
+        //Give the callback true.
+        
+        
         keychain["lastAuthentication"] = "facebook"
 
-        self.oauthAuthorize("facebook", password: tokenString, callback: callback)
+        //Hack- Commented out
+        //self.oauthAuthorize("facebook", password: tokenString, callback: callback)
     }
     
     private func attemptAuthorizationFromKeychain(callback: SuccessResponse) {
+        print(#function)
         
         let reachability = Reachability.reachabilityForInternetConnection()
         
@@ -150,6 +190,7 @@ class Session {
                         })
                     }
                 } else if lastAuthentication == "facebook" {
+                    print("Yes, this was last authorization")
                     if let accessToken = keychain["facebookAccessToken"] {
                         self.authorizeWithFacebook(tokenString: accessToken, callback: { (success) -> Void in
                             callback(success)
@@ -157,14 +198,17 @@ class Session {
                     }
                 }
             } else {
+                print("no lastAuthentication in keychain")
                 callback(false)
             }
         } else {
+            print("Not reachable")
             callback(false)
         }
     }
     
     private func internalAuthorize(oauth2: OAuth2PasswordGrant?, callback: OAuth2Response) {
+        print(#function)
 
         if let oauth2 = self.oauth2 {
             

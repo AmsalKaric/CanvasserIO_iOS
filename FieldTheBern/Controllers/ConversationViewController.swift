@@ -68,6 +68,24 @@ class ConversationViewController: UIViewController, UIGestureRecognizerDelegate,
         self.tableView.estimatedRowHeight = 160.0
         
         self.delegate = self
+        
+        
+        //Pre-populate people if available.
+        let userService = UserService()
+        
+        userService.getUsersForAddress(self.address, callback: {
+            (userResults, success, error) in
+            
+            if success {
+                if let persons = userResults {
+                    for person in persons {
+                        self.addPerson(person)
+                    }
+                }
+            } else {
+                print(error)
+            }
+        })
     }
     
     override func viewWillAppear(animated: Bool) {

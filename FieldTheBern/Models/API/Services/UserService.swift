@@ -38,13 +38,29 @@ struct UserService {
     }
     
     func me(callback: UserResponse) {
-        api.get("users/me", parameters: nil) { (data, success, error) -> Void in
-            self.handleUserResponse(data, success, error, callback: callback)
+        /*var obj: NSData? = nil
+        let jsonObject: [String:AnyObject] = [
+            "id": "abc",
+            "first_name": "Ricky",
+            "last_name": "Tan",
+            "email": "rickyt@triads.com",
+            "total_points": 1337,
+            "visits_count": 69
+        ]
+        
+        do {
+            obj = try NSJSONSerialization.dataWithJSONObject(jsonObject, options: .PrettyPrinted)
+        } catch let error {
+            print(error)
+        }*/
+        
+        api.get("me", parameters: nil) { (data, success, error) -> Void in
+            self.handleUserResponse(data, true, error, callback: callback)
         }
     }
     
     func editMe(json: UserJSON, callback: UserResponse) {
-        api.patch("users/me", parameters: json.json.object as? [String : AnyObject]) { (data, success, error) -> Void in
+        api.put("me", parameters: json.json.object as? [String : AnyObject]) { (data, success, error) -> Void in
             self.handleUserResponse(data, success, error, callback: callback)
         }
     }
@@ -60,21 +76,25 @@ struct UserService {
     func editMePhoto(photoString: String, callback: UserResponse) {
         let parameters = UserJSON(base64PhotoData: photoString).json
         
-        api.patch("users/me", parameters: parameters.object as? [String : AnyObject]) { (data, success, error) -> Void in
+        api.put("users/me", parameters: parameters.object as? [String : AnyObject]) { (data, success, error) -> Void in
             self.handleUserResponse(data, success, error, callback: callback)
         }
     }
     
     func checkUserWithFacebookIdExists(facebookId: String, callback: (userExists: Bool, apiSuccess: Bool, APIError?) -> Void) {
-        let parameters: JSON = [
+        /*let parameters: JSON = [
             "data": [
                 "attributes": [
                     "facebook_id": facebookId
                 ]
             ]
-        ]
+        ]*/
         
-        api.unauthorizedGet("users/lookup", parameters: parameters.object as? [String : AnyObject]) { (data, success, error) -> Void in
+        //Hack - prevent user check.
+        callback(userExists: true, apiSuccess: true, nil)
+        return
+        
+        /*api.unauthorizedGet("users/lookup", parameters: parameters.object as? [String : AnyObject]) { (data, success, error) -> Void in
             if success {
                 if let data = data {
                     let json = JSON(data: data)
@@ -91,6 +111,34 @@ struct UserService {
             } else {
                 callback(userExists: false, apiSuccess: success, error)
             }
+        }*/
+    }
+    
+    //Hack- Added
+    func getUsersForAddress(address: Address?, callback: (([Person]?, Bool, APIError?) -> Void)) {
+        
+        api.get("voters?aid=\(address!.id!)", parameters: [:]) { (data, success, error) in
+            
+            if success {
+                if let data = data {
+                    
+                    let json = JSON(data: data)
+                    print("$$got back: \(json)")
+                    var personsArray: [Person] = []
+                    
+                    for (_, included) in json {
+                        let newPerson = Person(firstName: included["first_name"].string,
+                                               lastName: included["last_name"].string,
+                                               partyAffiliation: nil,
+                                               canvassResponse: CanvassResponse.Unknown)
+                        personsArray.append(newPerson)
+                    }
+                    callback(personsArray, success, nil)
+                }
+                
+            } else {
+                callback(nil, success, error)
+            }
         }
     }
     
@@ -100,12 +148,14 @@ struct UserService {
             if let data = data {
                 
                 let json = JSON(data: data)
+                print(json)
                 
-                let user = User(json: json)
+                let user = User(json: json[0])
                 
                 callback(user, success, nil)
             }
         } else {
+            print(error)
             callback(nil, success, error)
         }
     }

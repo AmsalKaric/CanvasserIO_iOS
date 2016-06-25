@@ -62,15 +62,16 @@ struct User {
     }
 
     init(json: JSON) {
-        let userJSON = json["data"]
+        //let userJSON = json["data"]
         
-        self.init(userJSON: userJSON)
+        self.init(userJSON: json)
     }
     
     init(userJSON: JSON) {
         self.id = userJSON["id"].string
         
-        let attributes = userJSON["attributes"]
+        //let attributes = userJSON["attributes"]
+        let attributes = userJSON
         
         self.firstName = attributes["first_name"].string
         self.lastName = attributes["last_name"].string
