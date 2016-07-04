@@ -14,6 +14,8 @@ import SCLAlertView
 
 class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, pinCalloutDelegate {
     
+    var seletedTurfIndex = 0;
+    
     @IBOutlet weak var mapView: MKMapView!
     
     // MARK: - Nearest Address View
@@ -46,7 +48,16 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func animateNearestAddressViewIfNeeded() {
-        if let userCoordinate = self.mapView.userLocation.location?.coordinate {
+        
+        let turfs = Canvasser.sharedCanvasser.turfs
+        if turfs.count > 0 {
+            animateNearestAddressViewIn()
+        } else {
+            animateNearestAddressViewOut()
+        }
+        
+        
+        /*if let userCoordinate = self.mapView.userLocation.location?.coordinate {
             let userPoint = MKMapPointForCoordinate(userCoordinate)
             if let address = self.closestAddress,
                 let coordinate = address.coordinate {
@@ -76,7 +87,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         } else {
             // We don't have the user's location
             animateNearestAddressViewOut()
-        }
+        }*/
     }
     
     func animateNearestAddressViewIn() {
@@ -98,20 +109,37 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func tappedNearestAddressView(sender: UITapGestureRecognizer) {
-        for annotation in self.mapView.annotations {
+        print("Tapped the turf!")
+        
+        //Now fetch turf addresses and show them on map.
+        
+        //Zoom into turf
+        
+        
+        
+        /*for annotation in self.mapView.annotations {
             if let addressAnnotation = annotation as? AddressPointAnnotation {
                 if self.closestAddress?.id == addressAnnotation.id {
                     self.mapView.selectAnnotation(annotation, animated: true)
                 }
             }
-        }
+        }*/
     }
     
     func swipedNearestAddressView(sender: UISwipeGestureRecognizer) {
         if sender.direction == .Left {
-            nearestAddressView.layer.backgroundColor = Color.TransparentBlue.CGColor
+            self.seletedTurfIndex = (self.seletedTurfIndex+1) % Canvasser.sharedCanvasser.turfs.count
+            self.updateClosestLocation()
+            //nearestAddressView.layer.backgroundColor = Color.TransparentBlue.CGColor
         } else if sender.direction == .Right {
-            nearestAddressView.layer.backgroundColor = Color.Blue.CGColor
+            if self.seletedTurfIndex-1 == -1 {
+                self.seletedTurfIndex = Canvasser.sharedCanvasser.turfs.count-1
+            } else {
+                self.seletedTurfIndex = self.seletedTurfIndex-1
+            }
+            
+            self.updateClosestLocation()
+            //nearestAddressView.layer.backgroundColor = Color.Blue.CGColor
         }
     }
     
@@ -250,6 +278,11 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //Initialize the turfs
+        if Canvasser.sharedCanvasser.selectedCampaignId != -1 {
+            Canvasser.sharedCanvasser.initTurfs()
+        }
         
         if(CLLocationManager.authorizationStatus() == .AuthorizedAlways ||
         CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse)
@@ -593,10 +626,16 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     func updateClosestLocation()  {
         print(#function)
         dispatch_async(dispatch_get_main_queue()) {
+            
+            let turfs = Canvasser.sharedCanvasser.turfs
+            if turfs.count > 0 {
+                self.nearestAddressLabel.text = turfs[self.seletedTurfIndex].turf_title
+                self.nearestAddressSubtitleLabel.text = turfs[self.seletedTurfIndex].turf_description
+            }
 
-            var closestLocations: [(distance: CLLocationDistance?, address: Address)] = []
+            //var closestLocations: [(distance: CLLocationDistance?, address: Address)] = []
 
-            for address in self.nearbyAddresses {
+            /*for address in self.nearbyAddresses {
 
                 let location = CLLocation(latitude: address.coordinate!.latitude, longitude: address.coordinate!.longitude)
                 let distanceFrom = self.locationManager.location?.distanceFromLocation(location)
@@ -612,7 +651,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     self.nearestAddressImage.image = closestLocation.address.image
                 }
 
-            }
+            }*/
         }
     }
     

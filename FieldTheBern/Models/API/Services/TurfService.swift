@@ -19,7 +19,7 @@ struct TurfService {
     
     func campaignTurfs(callback: TurfResponse) {
         let campaignId = Canvasser.sharedCanvasser.selectedCampaignId
-        api.get("forcampaign/"+String(campaignId), parameters: nil) { (data, success, error) -> Void in
+        api.get("turfs/forcampaign/"+String(campaignId), parameters: nil) { (data, success, error) -> Void in
             self.handleTurfResponse(data, true, error, callback: callback)
         }
     }
@@ -31,6 +31,8 @@ struct TurfService {
             if let data = data {
                 
                 let json = JSON(data: data)
+                print("printing turf: ")
+                print(json)
                 var turfs: [Turf] = []
                 
                 for (_, result) in json {
