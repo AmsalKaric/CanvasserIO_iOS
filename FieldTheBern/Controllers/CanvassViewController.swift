@@ -112,10 +112,62 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         print("Tapped the turf!")
         
         //Now fetch turf addresses and show them on map.
+        let addressService = AddressService()
         
-        //Zoom into turf
-        
-        
+        let selectedTurfId = Canvasser.sharedCanvasser.turfs[self.seletedTurfIndex].turf_id
+        addressService.getAddressesForTurf(selectedTurfId) { (addressResults, success, error) in
+            
+            if success {
+                if let addresses = addressResults {
+                    //print(addresses)
+                    
+                    var annotationsToAdd: [MKAnnotation] = []
+                    var annotationsToRemove: [MKAnnotation] = []
+                    var annotationsToKeep: [MKAnnotation] = []
+                    
+                    self.nearbyAddresses = addresses
+                    
+                    for address in addresses {
+                        let result = self.annotationsContainAddress(address)
+                        if result.success {
+                            annotationsToKeep.append(result.annotation!)
+                        } else {
+                            let annotation = self.addressToPin(address)
+                            annotationsToKeep.append(annotation)
+                            annotationsToAdd.append(annotation)
+                        }
+                    }
+                    
+                    self.updateClosestLocation()
+                    self.animateNearestAddressViewIfNeeded()
+                    
+                    annotationsToRemove = self.differenceBetweenAnnotations(self.mapView.annotations, secondArray: annotationsToKeep)
+                    
+                    // Update UI
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.mapView.removeAnnotations(annotationsToRemove)
+                        self.mapView.addAnnotations(annotationsToAdd)
+                        
+                        //Zoom into turf
+                        let firstCoordinate = self.mapView.annotations[0].coordinate
+                        
+                        var region:MKCoordinateRegion = self.mapView.region
+                        region.center = firstCoordinate
+                        region.span.longitudeDelta = 0.015
+                        region.span.latitudeDelta = 0.015
+                        
+                        self.mapView.setRegion(region, animated: true)
+                    }
+                }
+            } else {
+                print("fetchAddresses failed to return success")
+                print(error)
+                // API error
+                if let apiError = error {
+                    self.handleError(apiError)
+                }
+            }
+        }
         
         /*for annotation in self.mapView.annotations {
             if let addressAnnotation = annotation as? AddressPointAnnotation {
