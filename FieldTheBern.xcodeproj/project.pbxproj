@@ -14,6 +14,8 @@
 		4D494D3C1D29AAA2003D52BB /* Canvasser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3B1D29AAA2003D52BB /* Canvasser.swift */; };
 		4D494D3E1D29B0DE003D52BB /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3D1D29B0DE003D52BB /* Campaign.swift */; };
 		4D494D401D29B7F5003D52BB /* CampaignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3F1D29B7F5003D52BB /* CampaignService.swift */; };
+		4D494D421D2ACC78003D52BB /* Turf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D411D2ACC78003D52BB /* Turf.swift */; };
+		4D494D441D2AD06C003D52BB /* TurfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D431D2AD06C003D52BB /* TurfService.swift */; };
 		4DF94AC61CFCB46300D7BAFC /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF94AC51CFCB46300D7BAFC /* UserStore.swift */; };
 		5C933507A3A30D99FEC7C4FF /* Pods_FieldTheBernUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */; };
 		657470C51C254C10001F9CD9 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657470C41C254C10001F9CD9 /* AppVersionProvider.swift */; };
@@ -220,6 +222,8 @@
 		4D494D3B1D29AAA2003D52BB /* Canvasser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvasser.swift; sourceTree = "<group>"; };
 		4D494D3D1D29B0DE003D52BB /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		4D494D3F1D29B7F5003D52BB /* CampaignService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignService.swift; sourceTree = "<group>"; };
+		4D494D411D2ACC78003D52BB /* Turf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turf.swift; sourceTree = "<group>"; };
+		4D494D431D2AD06C003D52BB /* TurfService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurfService.swift; sourceTree = "<group>"; };
 		4DF94AC51CFCB46300D7BAFC /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		4ECA9EF8BB9F8F1DF72DE8C6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -439,6 +443,7 @@
 			children = (
 				4D494D3B1D29AAA2003D52BB /* Canvasser.swift */,
 				4D494D3D1D29B0DE003D52BB /* Campaign.swift */,
+				4D494D411D2ACC78003D52BB /* Turf.swift */,
 			);
 			name = NewModels;
 			sourceTree = "<group>";
@@ -638,6 +643,7 @@
 				A73A0B1E1BD9F13B008ECC2E /* LeaderboardService.swift */,
 				A74FCE9B1BBB3933005C4D34 /* UserService.swift */,
 				A7DAACC01BCD6F4600F0BDBC /* VisitService.swift */,
+				4D494D431D2AD06C003D52BB /* TurfService.swift */,
 				A77A89F61BFBB41E0006E33E /* CompatibilityService.swift */,
 				4D494D3F1D29B7F5003D52BB /* CampaignService.swift */,
 			);
@@ -1096,6 +1102,7 @@
 				A79ECAC71BDC105100923C36 /* UserJSON.swift in Sources */,
 				A7CB4A651BD049FF00B9FC44 /* NoOneHomeTableViewCell.swift in Sources */,
 				A73D663F1BBEE87400127245 /* AddressService.swift in Sources */,
+				4D494D421D2ACC78003D52BB /* Turf.swift in Sources */,
 				A7D0E8671BFBC10600ED3C4F /* UpdateAppViewController.swift in Sources */,
 				A7CA34531BDFE6FC007A9495 /* HomeItemsViewController.swift in Sources */,
 				A72479041BF559BA0002481A /* UIBarButtonItem.swift in Sources */,
@@ -1213,6 +1220,7 @@
 				A76559A61BE822AC005CEA0F /* HowToCanvassItemDetailTableViewController.swift in Sources */,
 				A74FCE9E1BBB3BFB005C4D34 /* API.swift in Sources */,
 				A74279831BCF0B770020EE29 /* SubmitButtonDelegate.swift in Sources */,
+				4D494D441D2AD06C003D52BB /* TurfService.swift in Sources */,
 				A7CA344E1BDFE6E9007A9495 /* TopicsImageCacheOperation.swift in Sources */,
 				A7CA34601BDFE709007A9495 /* ItemCollectionCell.swift in Sources */,
 				A7DAACC31BCD6FC200F0BDBC /* Visit.swift in Sources */,
