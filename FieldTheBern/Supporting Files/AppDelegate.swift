@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BITHockeyManager.sharedHockeyManager().startManager()
         BITHockeyManager.sharedHockeyManager().authenticator.authenticateInstallation()*/
         
+        // Create canvasser
+        
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil)
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()

@@ -213,6 +213,11 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //If no campaignId is selected, take them to the campaignID select screen. (show alert too)
+        if Canvasser.sharedCanvasser.selectedCampaignId == -1 {
+            performSegueWithIdentifier("CampaignSelect", sender: self)
+        }
+        
         // Set the map view
         mapView.delegate = self
         mapView?.showsUserLocation = true

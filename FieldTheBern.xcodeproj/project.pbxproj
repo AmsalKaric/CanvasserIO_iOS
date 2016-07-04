@@ -10,6 +10,10 @@
 		1F111A379A70CDAD18A0A037 /* Pods_GroundGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CDA176EC9C55807BADD7BDB /* Pods_GroundGameUITests.framework */; };
 		377BD5881C4CCB390091C8E4 /* field_offices_geocoded.json in Resources */ = {isa = PBXBuildFile; fileRef = 377BD5871C4CCB390091C8E4 /* field_offices_geocoded.json */; };
 		37F45DAE1BFD974500DC9CF3 /* AddressPointPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F45DAD1BFD974500DC9CF3 /* AddressPointPinAnnotation.swift */; };
+		4D494D391D2994F7003D52BB /* SelectCampaignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D381D2994F7003D52BB /* SelectCampaignViewController.swift */; };
+		4D494D3C1D29AAA2003D52BB /* Canvasser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3B1D29AAA2003D52BB /* Canvasser.swift */; };
+		4D494D3E1D29B0DE003D52BB /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3D1D29B0DE003D52BB /* Campaign.swift */; };
+		4D494D401D29B7F5003D52BB /* CampaignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3F1D29B7F5003D52BB /* CampaignService.swift */; };
 		4DF94AC61CFCB46300D7BAFC /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF94AC51CFCB46300D7BAFC /* UserStore.swift */; };
 		5C933507A3A30D99FEC7C4FF /* Pods_FieldTheBernUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */; };
 		657470C51C254C10001F9CD9 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657470C41C254C10001F9CD9 /* AppVersionProvider.swift */; };
@@ -212,6 +216,10 @@
 		37F45DAD1BFD974500DC9CF3 /* AddressPointPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPointPinAnnotation.swift; sourceTree = "<group>"; };
 		4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FieldTheBernUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D0F507249FDAB3717AABE70 /* Pods-GroundGameUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundGameUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroundGameUITests/Pods-GroundGameUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D494D381D2994F7003D52BB /* SelectCampaignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCampaignViewController.swift; sourceTree = "<group>"; };
+		4D494D3B1D29AAA2003D52BB /* Canvasser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvasser.swift; sourceTree = "<group>"; };
+		4D494D3D1D29B0DE003D52BB /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		4D494D3F1D29B7F5003D52BB /* CampaignService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignService.swift; sourceTree = "<group>"; };
 		4DF94AC51CFCB46300D7BAFC /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		4ECA9EF8BB9F8F1DF72DE8C6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -426,6 +434,15 @@
 			name = Alerts;
 			sourceTree = "<group>";
 		};
+		4D494D3A1D29AA6C003D52BB /* NewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4D494D3B1D29AAA2003D52BB /* Canvasser.swift */,
+				4D494D3D1D29B0DE003D52BB /* Campaign.swift */,
+			);
+			name = NewModels;
+			sourceTree = "<group>";
+		};
 		A5315A268882C6EDDEBA8834 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +513,7 @@
 		A74FCE971BBB376A005C4D34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4D494D3A1D29AA6C003D52BB /* NewModels */,
 				A765599C1BE7DE0D005CEA0F /* API */,
 				A7CA342C1BDFE6D7007A9495 /* Content */,
 				A7CA34341BDFE6D7007A9495 /* Items */,
@@ -584,6 +602,7 @@
 				A768C1F01BBCA62200DBDFEA /* CanvassViewController.swift */,
 				A775B9F71BC2F8A600510924 /* ConversationViewController.swift */,
 				A72999BC1BE6CBBC0053CE23 /* EditProfileViewController.swift */,
+				4D494D381D2994F7003D52BB /* SelectCampaignViewController.swift */,
 				A7F014891BDEFB82009282F6 /* ElectionDetailsViewController.swift */,
 				A7CA34501BDFE6FC007A9495 /* HomeItemsViewController.swift */,
 				A76559A51BE822AC005CEA0F /* HowToCanvassItemDetailTableViewController.swift */,
@@ -620,6 +639,7 @@
 				A74FCE9B1BBB3933005C4D34 /* UserService.swift */,
 				A7DAACC01BCD6F4600F0BDBC /* VisitService.swift */,
 				A77A89F61BFBB41E0006E33E /* CompatibilityService.swift */,
+				4D494D3F1D29B7F5003D52BB /* CampaignService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1086,6 +1106,7 @@
 				657470C51C254C10001F9CD9 /* AppVersionProvider.swift in Sources */,
 				A7CA34661BE029AA007A9495 /* ListModel.swift in Sources */,
 				A7D3F6FB1BCC313400232234 /* PartyAffiliation.swift in Sources */,
+				4D494D3C1D29AAA2003D52BB /* Canvasser.swift in Sources */,
 				A771C58C1BD812B200179F04 /* States.swift in Sources */,
 				A775B9EE1BC077E400510924 /* APIURL.swift in Sources */,
 				A7F4517F1BE53368004CECC2 /* LoadingAnimationViewController.swift in Sources */,
@@ -1094,6 +1115,7 @@
 				A7CA34421BDFE6D7007A9495 /* PageModel.swift in Sources */,
 				A7CA34221BDFE6B6007A9495 /* NSAttributedStringExtensions.swift in Sources */,
 				A7CA34541BDFE6FC007A9495 /* ItemsViewController.swift in Sources */,
+				4D494D391D2994F7003D52BB /* SelectCampaignViewController.swift in Sources */,
 				A72F88B11BCC498F001B185B /* PartySelectionDelegate.swift in Sources */,
 				A7CA34391BDFE6D7007A9495 /* ContentModel.swift in Sources */,
 				A7B1EE021BE4273300EA50C2 /* DeviceJSON.swift in Sources */,
@@ -1161,6 +1183,7 @@
 				A7D3F6F51BCC2A3600232234 /* PartyAffiliationTableViewController.swift in Sources */,
 				A7CA343B1BDFE6D7007A9495 /* LinkModel.swift in Sources */,
 				A79ECACB1BDC2B0F00923C36 /* CellButtonDelegate.swift in Sources */,
+				4D494D3E1D29B0DE003D52BB /* Campaign.swift in Sources */,
 				A750EA6F1BB9FC1400D090F5 /* OnboardingViewController.swift in Sources */,
 				A74FCE9C1BBB3933005C4D34 /* UserService.swift in Sources */,
 				A7F4517D1BE52A2A004CECC2 /* CutoutMap.swift in Sources */,
@@ -1197,6 +1220,7 @@
 				A768C1F11BBCA62200DBDFEA /* CanvassViewController.swift in Sources */,
 				A72999BB1BE6AE300053CE23 /* SignInViewController.swift in Sources */,
 				A7D3F6F71BCC2CF700232234 /* CheckableTableViewCell.swift in Sources */,
+				4D494D401D29B7F5003D52BB /* CampaignService.swift in Sources */,
 				A7CA342B1BDFE6C2007A9495 /* CacheManager.swift in Sources */,
 				A780A4D41BC863440090B979 /* BlueTableViewCell.swift in Sources */,
 				A73D66431BBF373600127245 /* AddressPointAnnotation.swift in Sources */,

@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    @IBOutlet var campaignTitleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,10 +19,18 @@ class SettingsTableViewController: UITableViewController {
         
         self.tableView.tableFooterView = UIView()
         self.edgesForExtendedLayout = UIRectEdge.None
+        
+        campaignTitleLabel.text = Canvasser.sharedCanvasser.selectedCampaignTitle
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        campaignTitleLabel.text = Canvasser.sharedCanvasser.selectedCampaignTitle
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 1 {
+        if indexPath.row == 2 {
             let session = Session.sharedInstance
             session.logout()
             self.performSegueWithIdentifier("Logout", sender: self)

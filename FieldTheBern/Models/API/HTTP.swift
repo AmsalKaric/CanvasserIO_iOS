@@ -24,7 +24,7 @@ class HTTP {
         //session.authorize(.Reauthorization) { (success) -> Void in
         //    if success {
                 //if let accessToken = self.session.oauth2?.accessToken {
-                let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6IjEiLCJleHAiOjE0NjU1MjE2NTUsImZiaWQiOiIxMDIwOTkxMjM1NDQ2NDY0NCIsImlhdCI6MTQ2NTQzNTI1NSwidXNlcklkIjoiMzIzNjUwIn0.BgxQiIytlF9Fm5IX1d1cyYAQtTkMn_saEwuvdbSWlQg"
+                let accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6IjEiLCJleHAiOjE0Njc2NjY4MDgsImZiaWQiOiIxMDIwOTkxMjM1NDQ2NDY0NCIsImlhdCI6MTQ2NzU4MDQwOCwidXNlcklkIjoiMzIzNjUwIn0._tS9FVE87NpqgAksupwmj8db9zkI8gbFBtmPEcuou7I"
                     let headers = [
                         //"User-Agent": self.appVersionProvider.versionString(),
                         //"Authorization": "Bearer \(accessToken)"
