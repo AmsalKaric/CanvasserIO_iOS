@@ -15,6 +15,7 @@ import SCLAlertView
 class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, pinCalloutDelegate {
     
     var seletedTurfIndex = 0;
+    var selectedPolygon: MKPolygon = MKPolygon()
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -109,7 +110,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func tappedNearestAddressView(sender: UITapGestureRecognizer) {
-        print("Tapped the turf!")
+        //print("Tapped the turf!")
         
         //Now fetch turf addresses and show them on map.
         let addressService = AddressService()
@@ -143,10 +144,22 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     
                     annotationsToRemove = self.differenceBetweenAnnotations(self.mapView.annotations, secondArray: annotationsToKeep)
                     
+                    //Prepare overlay for display
+                    var overlayLocations: [CLLocationCoordinate2D] = []
+                    for ann: MKAnnotation in self.mapView.annotations {
+                        overlayLocations.append(ann.coordinate)  //Add to overlay
+                    }
+                    
                     // Update UI
                     dispatch_async(dispatch_get_main_queue()) {
                         self.mapView.removeAnnotations(annotationsToRemove)
                         self.mapView.addAnnotations(annotationsToAdd)
+                        
+                        //Display overlay polygon UI
+                        self.mapView.removeOverlay(self.selectedPolygon)  //Removed old one
+                        
+                        let poly: MKPolygon = MKPolygon(coordinates: &overlayLocations, count: overlayLocations.count)
+                        self.mapView.addOverlay(poly)  //Add new one
                         
                         //Zoom into turf
                         let firstCoordinate = self.mapView.annotations[0].coordinate
@@ -160,7 +173,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     }
                 }
             } else {
-                print("fetchAddresses failed to return success")
+                print("tappedNearestAddressView failed to return success")
                 print(error)
                 // API error
                 if let apiError = error {
@@ -612,8 +625,8 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         if foo() > 1 {
             return
         }
-        print(#function)
-        lastUpdated = NSDate()
+        //print(#function)
+        /*lastUpdated = NSDate()
         
         let distance = mapView.getFurthestDistanceFromRegionCenter()
         
@@ -670,13 +683,13 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     }
                 }
             }
-        }
+        }*/
     }
     
     var closestAddress: Address?
     
     func updateClosestLocation()  {
-        print(#function)
+        //print(#function)
         dispatch_async(dispatch_get_main_queue()) {
             
             let turfs = Canvasser.sharedCanvasser.turfs

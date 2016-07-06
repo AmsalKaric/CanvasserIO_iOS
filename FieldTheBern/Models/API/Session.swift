@@ -37,10 +37,10 @@ class Session {
             guard let password = password else { callback(false); break }
             self.oauthAuthorize(email, password: password, callback: callback)
         case .Facebook:
-            print("Trying to authorize...")
+            //print("Trying to authorize...")
             guard let token = facebookToken else { print("Nope"); callback(false); break }
-            print("Authorized!!")
-            print(token.userID)
+            //print("Authorized!!")
+            //print(token.userID)
             let fbRequest = FBSDKGraphRequest(graphPath:"me", parameters: nil);
             fbRequest.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
                 if error == nil {
@@ -79,7 +79,7 @@ class Session {
     }
     
     private func authorizeWithFacebook(token token: FBSDKAccessToken, callback: SuccessResponse) {
-        print(#function)
+        //print(#function)
         
         // Reset other login information if this is a different facebook user
         if let facebookId = keychain["facebookId"] {
@@ -103,7 +103,7 @@ class Session {
     }
     
     private func oauthAuthorize(email: String, password: String, callback: SuccessResponse) {
-        print(#function)
+        //print(#function)
         
         let settings = [
             "client_id": OAuth.ClientId,
@@ -142,7 +142,7 @@ class Session {
     }
         
     private func authorizeWithFacebook(tokenString tokenString: String, callback: SuccessResponse) {
-        print(#function)
+        //print(#function)
         
         let api = API()
         
@@ -156,8 +156,9 @@ class Session {
                 if let data = data {
                     
                     let json = JSON(data: data)
-                    let saveToken = json["token"]
-                    print("Got saveToken: '\(saveToken)'")
+                    let saveToken = json["token"].string
+                    Canvasser.sharedCanvasser.jwtToken = saveToken!
+                    //print("Got saveToken: '\(saveToken)'")
                     callback(success)
                 }
             } else {
@@ -177,7 +178,7 @@ class Session {
     }
     
     private func attemptAuthorizationFromKeychain(callback: SuccessResponse) {
-        print(#function)
+        //print(#function)
         
         let reachability = Reachability.reachabilityForInternetConnection()
         
@@ -190,7 +191,7 @@ class Session {
                         })
                     }
                 } else if lastAuthentication == "facebook" {
-                    print("Yes, this was last authorization")
+                    //print("Yes, this was last authorization")
                     if let accessToken = keychain["facebookAccessToken"] {
                         self.authorizeWithFacebook(tokenString: accessToken, callback: { (success) -> Void in
                             callback(success)

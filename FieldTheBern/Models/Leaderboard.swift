@@ -45,15 +45,15 @@ struct Leaderboard {
 
         for(_, ranking) in rankings {  //Go through each ranking
             var newRanking = Ranking(json: ranking)  //Make ranking object from index
-            print("on Ranking: \(ranking)")
+            //print("on Ranking: \(ranking)")
 
             for(_, user) in users {  //Go through all users for the ranking
-                print("on User: \(user)")
-                print("\(newRanking.userId), \(user["id"].string)")
+                //print("on User: \(user)")
+                //print("\(newRanking.userId), \(user["id"].string)")
                 if let rankingUserId = newRanking.userId {  //If we have a valid rankingId for the ranking
                     if let userId = user["id"].int {  //If we have a valid userID for the user
                         
-                        print("rankingUserId: \(rankingUserId), userId: \(userId)")
+                        //print("rankingUserId: \(rankingUserId), userId: \(userId)")
                         
                         if rankingUserId == userId {  //If rankingID matches userID
                             let newUser = User(userJSON: user)  //Make new user

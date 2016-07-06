@@ -31,8 +31,8 @@ struct TurfService {
             if let data = data {
                 
                 let json = JSON(data: data)
-                print("printing turf: ")
-                print(json)
+                //print("printing turf: ")
+                //print(json)
                 var turfs: [Turf] = []
                 
                 for (_, result) in json {

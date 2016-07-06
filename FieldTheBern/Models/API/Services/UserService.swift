@@ -148,7 +148,7 @@ struct UserService {
             if let data = data {
                 
                 let json = JSON(data: data)
-                print(json)
+                //print(json)
                 
                 let user = User(json: json[0])
                 
