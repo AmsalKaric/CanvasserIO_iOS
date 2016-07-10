@@ -13,6 +13,7 @@ import RealmSwift
 class ItemsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var queue = NSOperationQueue()
     var items = [FTBItemModel]()
+    var positions: [Position] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,18 @@ class ItemsViewController: UICollectionViewController, UICollectionViewDelegateF
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView?.reloadData()
+        
+        let positionService = PositionService()
+        positionService.campaignPositions() { (positionResults, success, error) in
+            
+            if success {
+                self.positions = positionResults!
+                self.collectionView?.reloadData()
+            } else {
+                print("positionService call failed to return success")
+                print(error)
+            }
+        }
     }
     
     //
@@ -35,20 +47,23 @@ class ItemsViewController: UICollectionViewController, UICollectionViewDelegateF
     //
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        //return items.count
+        return positions.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(FTBConfig.ItemCollectionCell, forIndexPath: indexPath) as! ItemCollectionCell
-        let item = items[indexPath.row]
+        //let item = items[indexPath.row]
+        let position = positions[indexPath.row]
         
-        cell.itemTitleLabel.text = item.title
+        //cell.itemTitleLabel.text = item.title
+        cell.itemTitleLabel.text = position.position_title
         
-        if let imageUrl = NSURL(string: item.imageURLStr) {
+        /*if let imageUrl = NSURL(string: item.imageURLStr) {
             let layout = collectionView.collectionViewLayout
             let size = self.collectionView(collectionView, layout: layout, sizeForItemAtIndexPath: indexPath)
             cell.setImageURL(imageUrl, size: size)
-        }
+        }*/
         
         return cell
     }
@@ -60,9 +75,10 @@ class ItemsViewController: UICollectionViewController, UICollectionViewDelegateF
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-        let item = items[indexPath.row]
+        //let item = items[indexPath.row]
+        let position = positions[indexPath.row]
         
-        if let page = item as? PageModel {
+        /*if let page = item as? PageModel {
             if let pageController = UIStoryboard.pageDetailViewControllerWithPage(page) {
                 navigationController?.pushViewController(pageController, animated: true)
             }
@@ -71,7 +87,21 @@ class ItemsViewController: UICollectionViewController, UICollectionViewDelegateF
             if let collectionController = UIStoryboard.itemsCollectionViewControllerWithItems(item, items: itemCollection.allItems()) {
                 navigationController?.pushViewController(collectionController, animated: true)
             }
-        }
+        }*/
+        
+        let vc = UIViewController()
+        let tv = UITextView(frame: self.view.bounds)
+        tv.text = position.position_content
+        tv.textColor = UIColor.whiteColor()
+        tv.backgroundColor = UIColor.init(red: 56/255.0,
+                                          green: 143/255.0,
+                                          blue: 218/255.0,
+                                          alpha: 1.0)
+        //tv.backgroundColor = UIColor.blackColor()
+        tv.editable = false
+        tv.scrollEnabled = true
+        vc.view.addSubview(tv)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
-    
 }

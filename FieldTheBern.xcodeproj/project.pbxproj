@@ -16,6 +16,8 @@
 		4D494D401D29B7F5003D52BB /* CampaignService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D3F1D29B7F5003D52BB /* CampaignService.swift */; };
 		4D494D421D2ACC78003D52BB /* Turf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D411D2ACC78003D52BB /* Turf.swift */; };
 		4D494D441D2AD06C003D52BB /* TurfService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D431D2AD06C003D52BB /* TurfService.swift */; };
+		4D9A557F1D32F79700BCD30C /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A557E1D32F79700BCD30C /* PositionsService.swift */; };
+		4D9A55811D32F7ED00BCD30C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A55801D32F7ED00BCD30C /* Position.swift */; };
 		4DF94AC61CFCB46300D7BAFC /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF94AC51CFCB46300D7BAFC /* UserStore.swift */; };
 		5C933507A3A30D99FEC7C4FF /* Pods_FieldTheBernUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */; };
 		657470C51C254C10001F9CD9 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657470C41C254C10001F9CD9 /* AppVersionProvider.swift */; };
@@ -224,6 +226,8 @@
 		4D494D3F1D29B7F5003D52BB /* CampaignService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignService.swift; sourceTree = "<group>"; };
 		4D494D411D2ACC78003D52BB /* Turf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turf.swift; sourceTree = "<group>"; };
 		4D494D431D2AD06C003D52BB /* TurfService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurfService.swift; sourceTree = "<group>"; };
+		4D9A557E1D32F79700BCD30C /* PositionsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionsService.swift; sourceTree = "<group>"; };
+		4D9A55801D32F7ED00BCD30C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		4DF94AC51CFCB46300D7BAFC /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		4ECA9EF8BB9F8F1DF72DE8C6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -442,6 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				4D494D3B1D29AAA2003D52BB /* Canvasser.swift */,
+				4D9A55801D32F7ED00BCD30C /* Position.swift */,
 				4D494D3D1D29B0DE003D52BB /* Campaign.swift */,
 				4D494D411D2ACC78003D52BB /* Turf.swift */,
 			);
@@ -644,6 +649,7 @@
 				A74FCE9B1BBB3933005C4D34 /* UserService.swift */,
 				A7DAACC01BCD6F4600F0BDBC /* VisitService.swift */,
 				4D494D431D2AD06C003D52BB /* TurfService.swift */,
+				4D9A557E1D32F79700BCD30C /* PositionsService.swift */,
 				A77A89F61BFBB41E0006E33E /* CompatibilityService.swift */,
 				4D494D3F1D29B7F5003D52BB /* CampaignService.swift */,
 			);
@@ -1202,6 +1208,7 @@
 				A742797C1BCED5DB0020EE29 /* VisitJSON.swift in Sources */,
 				A7CA343C1BDFE6D7007A9495 /* ParagraphModel.swift in Sources */,
 				A73A0B271BDA9E7D008ECC2E /* User.swift in Sources */,
+				4D9A557F1D32F79700BCD30C /* PositionsService.swift in Sources */,
 				A7D12D321BC99FC5005EB417 /* CanvassResponse.swift in Sources */,
 				A7CA344D1BDFE6E9007A9495 /* TopicsDownloadOperation.swift in Sources */,
 				A7D3F6FF1BCC370000232234 /* CanvassResponseOption.swift in Sources */,
@@ -1218,6 +1225,7 @@
 				A7CA34281BDFE6B6007A9495 /* UIStoryboardExtensions.swift in Sources */,
 				A771C5901BD8139400179F04 /* PinImage.swift in Sources */,
 				A76559A61BE822AC005CEA0F /* HowToCanvassItemDetailTableViewController.swift in Sources */,
+				4D9A55811D32F7ED00BCD30C /* Position.swift in Sources */,
 				A74FCE9E1BBB3BFB005C4D34 /* API.swift in Sources */,
 				A74279831BCF0B770020EE29 /* SubmitButtonDelegate.swift in Sources */,
 				4D494D441D2AD06C003D52BB /* TurfService.swift in Sources */,
