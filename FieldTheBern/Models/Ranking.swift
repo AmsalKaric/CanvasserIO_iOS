@@ -32,7 +32,7 @@ struct Ranking {
     init(json: JSON) {
         self.userId = json["id"].int
 
-        if let rankNumber = json["6"].number {
+        if let rankNumber = json["rank"].number {
             self.rank = Int(rankNumber)
         } else {
             self.rank = nil

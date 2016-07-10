@@ -16,8 +16,19 @@ struct Leaderboard {
     init(json: JSON) {
         let rankings = json
         
+        var rankingsTemp: [Ranking] = []
+        for(_, ranking) in rankings {  //Go through each ranking
+            var newRanking = Ranking(json: ranking)  //Make ranking object from index
+            let newUser = User(userJSON: ranking)  //Make new user
+            newRanking.user = newUser  //Set ranking user to user
+            rankingsTemp.append(newRanking)  //ranking to rankings Temp
+        }
+        self.rankings = rankingsTemp
         
-        var obj: NSData? = nil
+        
+        
+        
+        /*var obj: NSData? = nil
         let jsonObject: [[String:AnyObject]] = [
             ["id": 6,
                 "first_name": "Patricia",
@@ -66,6 +77,6 @@ struct Leaderboard {
         }
         
         //print(rankingsTemp)
-        self.rankings = rankingsTemp
+        self.rankings = rankingsTemp*/
     }
 }

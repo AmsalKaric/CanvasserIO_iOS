@@ -67,6 +67,23 @@ struct User {
         self.init(userJSON: json)
     }
     
+    init(leaderBoardJSON: JSON) {
+        self.id = leaderBoardJSON["id"].string
+        
+        self.firstName = leaderBoardJSON["first_name"].string
+        self.lastName = leaderBoardJSON["last_name"].string
+        self.email = ""
+        
+        if let points = leaderBoardJSON["total_points"].number {
+            self.totalPoints = Int(points)
+        } else {
+            self.totalPoints = 0
+        }
+        self.visitsCount = 0
+        self.photoThumbURL = ""
+        self.photoLargeURL = ""
+    }
+    
     init(userJSON: JSON) {
         self.id = userJSON["id"].string
         
