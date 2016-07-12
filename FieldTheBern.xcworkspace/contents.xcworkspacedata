@@ -5,6 +5,15 @@
       location = "group:one.gpx">
    </FileRef>
    <FileRef
+      location = "group:jc.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:four.gpx">
+   </FileRef>
+   <FileRef
+      location = "group:three.gpx">
+   </FileRef>
+   <FileRef
       location = "group:/Users/akaric/Desktop/canvasser_io/CanvasserIO/mobileapp_iOS/fieldthebern-ios/two.gpx">
    </FileRef>
    <FileRef
