@@ -289,7 +289,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     
                     let address = pinSender?.address
                     
-                    print("tapped this one: \(address)")
+                    //print("tapped this one: \(address)")
                     
                     rootController.location = currentLocation
                     rootController.address = address
@@ -309,6 +309,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         //If no campaignId is selected, take them to the campaignID select screen. (show alert too)
         if Canvasser.sharedCanvasser.selectedCampaignId == -1 {
             performSegueWithIdentifier("CampaignSelect", sender: self)
+            self.updateClosestLocation()
         }
         
         // Set the map view
@@ -694,8 +695,11 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
             
             let turfs = Canvasser.sharedCanvasser.turfs
             if turfs.count > 0 {
+                //print("yes, >0")
                 self.nearestAddressLabel.text = turfs[self.seletedTurfIndex].turf_title
                 self.nearestAddressSubtitleLabel.text = turfs[self.seletedTurfIndex].turf_description
+            } else {
+                //print("nope, >0")
             }
 
             //var closestLocations: [(distance: CLLocationDistance?, address: Address)] = []
@@ -799,7 +803,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     }
     
     func tappedCallout(annotation: MKAnnotationView) {
-        print("Callout tapped")
+        //print("Callout tapped")
         performSegueWithIdentifier("CanvassVisit", sender: annotation)
     }
     

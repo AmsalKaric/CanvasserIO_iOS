@@ -65,7 +65,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         UserService().me { (user, success, error) -> Void in
             if success {
                 if let user = user {
-                    print("user!!!: \(user)")
+                    //print("user!!!: \(user)")
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.loadingView.hidden = true
                         self.firstNameField.text = user.firstName

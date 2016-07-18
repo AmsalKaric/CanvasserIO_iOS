@@ -146,7 +146,7 @@ class AddressPointPinAnnotation: MKAnnotationView, UIGestureRecognizerDelegate {
     }
     
     func calloutTapped(sender: UITapGestureRecognizer?) {
-        print("tapped the callout!!")
+        //print("tapped the callout!!")
         self.calloutDelegate?.tappedCallout!(self)
     }
     

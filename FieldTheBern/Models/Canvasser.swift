@@ -25,12 +25,18 @@ class Canvasser: NSObject {
     }
     
     func initTurfs() {
+        //print("Calling turf service")
         TurfService().campaignTurfs { (turfs, success, error) -> Void in
             if success {
+                //print("Succeeded")
                 if let turfs = turfs {
+                    //print("yep")
+                    //self.turfs = turfs
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         self.turfs = turfs
                     })
+                } else {
+                    //print("nope")
                 }
             } else {
                 if let error = error {

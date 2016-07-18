@@ -123,7 +123,7 @@ struct UserService {
                 if let data = data {
                     
                     let json = JSON(data: data)
-                    print("$$got back: \(json)")
+                    //print("$$got back: \(json)")
                     var personsArray: [Person] = []
                     
                     for (_, included) in json {
