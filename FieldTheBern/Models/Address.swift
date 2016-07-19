@@ -22,6 +22,7 @@ struct Address {
     let zipCode: String?
     let coordinate: CLLocationCoordinate2D?
     let visitedAt: NSDate?
+    let interaction_type: String?
 
     var bestResult: VisitResult = .NotVisited
     var lastResult: VisitResult = .Unknown
@@ -65,7 +66,15 @@ struct Address {
     
     var image: UIImage? {
         get {
-            switch displayedResult {
+            if let result = interaction_type {
+                if result == "canvass_visit" {
+                    return PinImage.Blue
+                } else if result == "address_confirm" {
+                    return PinImage.LightBlue
+                }
+            }
+            return PinImage.Gray  //default
+            /*switch displayedResult {
             case .NotVisited:
                 return PinImage.Gray
             case .NotHome:
@@ -82,7 +91,7 @@ struct Address {
                 return PinImage.Blue
             case .Undecided:
                 return PinImage.White
-            }
+            }*/
         }
     }
     
@@ -135,6 +144,7 @@ struct Address {
         city = addressJSON["city"].string
         stateCode = addressJSON["state_code"].string
         zipCode = addressJSON["postal"].string
+        interaction_type = addressJSON["interaction_type"].string
         
         if let dateString = addressJSON["visited_at"].string {
             visitedAt = NSDate.dateFromISOString(dateString)
@@ -207,6 +217,7 @@ struct Address {
         self.bestResult = bestResult
         self.lastResult = lastResult
         self.visitedAt = nil
+        self.interaction_type = nil
 
         if let latitude = latitude, let longitude = longitude {
             self.coordinate = CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude)

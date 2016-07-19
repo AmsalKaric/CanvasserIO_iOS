@@ -804,6 +804,13 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
     
     func tappedCallout(annotation: MKAnnotationView) {
         //print("Callout tapped")
+        annotation as? AddressPointPinAnnotation
+        let pinSender = annotation as? AddressPointPinAnnotation
+        if let interaction = pinSender?.address?.interaction_type {
+            if interaction == "canvass_visit" {
+                return
+            }
+        }
         performSegueWithIdentifier("CanvassVisit", sender: annotation)
     }
     
