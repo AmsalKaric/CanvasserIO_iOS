@@ -146,19 +146,22 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                     
                     //Prepare overlay for display
                     var overlayLocations: [CLLocationCoordinate2D] = []
-                    for ann: MKAnnotation in self.mapView.annotations {
+                    /*for ann: MKAnnotation in annotationsToKeep {
                         overlayLocations.append(ann.coordinate)  //Add to overlay
-                    }
+                    }*/
+                    overlayLocations = Canvasser.sharedCanvasser.turfs[self.seletedTurfIndex].turf_geom_polygon
                     
                     // Update UI
                     dispatch_async(dispatch_get_main_queue()) {
                         self.mapView.removeAnnotations(annotationsToRemove)
                         self.mapView.addAnnotations(annotationsToAdd)
                         
-                        //Display overlay polygon UI
-                        self.mapView.removeOverlay(self.selectedPolygon)  //Removed old one
-                        
                         let poly: MKPolygon = MKPolygon(coordinates: &overlayLocations, count: overlayLocations.count)
+                        
+                        //Display old and add new overlay polygon UI
+                        self.mapView.removeOverlay(self.selectedPolygon)  //Removed old one
+                        self.selectedPolygon = poly
+                        
                         self.mapView.addOverlay(poly)  //Add new one
                         
                         //Zoom into turf
@@ -189,6 +192,16 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
                 }
             }
         }*/
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        //if overlay is MKPolygon {
+            let polygonView = MKPolygonRenderer(overlay: overlay)
+            polygonView.fillColor = UIColor(red: 0, green: 0.847, blue: 1, alpha: 0.25)
+            
+            return polygonView
+        //}
+        //return nil
     }
     
     func swipedNearestAddressView(sender: UISwipeGestureRecognizer) {
@@ -808,10 +821,89 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         let pinSender = annotation as? AddressPointPinAnnotation
         if let interaction = pinSender?.address?.interaction_type {
             if interaction == "canvass_visit" {
+                let alert = SCLAlertView()
+                
+                alert.addButton("Thanks for letting me know")
+                {
+                    print("Thanks for letting me know")
+                }
+                
+                alert.showCloseButton = false
+                alert.showInfo("Already Canvassed!", subTitle:"This address has already been canvassed! Look out for the gray or blue pins for addresses available to canvass.\n\nGreen:canvassed\nBlue:Address confirmed\nGrey:No activity yet.");
                 return
             }
         }
-        performSegueWithIdentifier("CanvassVisit", sender: annotation)
+        
+        //Try to see if close enough for canvassing...
+        if let coordinate = pinSender?.address?.coordinate {
+            let source = CLLocation(latitude: mapView.userLocation.coordinate.latitude,
+                                    longitude: mapView.userLocation.coordinate.longitude)
+            let destination = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            
+            let distance = destination.distanceFromLocation(source)
+            print("Distance is this many meters \(distance)")
+            if (distance > 20) {
+                
+                let alert = SCLAlertView()
+                
+                alert.addButton("Thanks for letting me know")
+                {
+                    print("Thanks for letting me know")
+                }
+                
+                alert.showCloseButton = false
+                alert.showInfo("Already Canvassed!", subTitle:"This address has already     been canvassed! Look out for the gray or blue pins for addresses    available to canvass.\n\nGreen:canvassed\nBlue:Address confirmed    \nGrey:No activity yet.");
+                return
+            } else {
+                self.performSegueWithIdentifier("CanvassVisit", sender: annotation)
+            }
+            
+            
+            
+            /*let source = MKMapItem.mapItemForCurrentLocation()
+            let destPlacemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+            let destination = MKMapItem(placemark: destPlacemark)
+            
+            let request: MKDirectionsRequest = MKDirectionsRequest()
+            //source and destination are the relevant MKMapItems
+            request.source = source
+            request.destination = destination
+            
+            // Specify the transportation type
+            request.transportType = MKDirectionsTransportType.Automobile;
+            
+            // If you're open to getting more than one route,
+            // requestsAlternateRoutes = true; else requestsAlternateRoutes = false;
+            request.requestsAlternateRoutes = true
+            
+            let directions = MKDirections(request: request)
+            
+            directions.calculateDirectionsWithCompletionHandler ({
+                (response: MKDirectionsResponse?, error: NSError?) in
+                
+                if error == nil {
+                    let route = response!.routes[0] as MKRoute
+                    let distance = route.distance
+                    print("Distance is this many meters \(distance)")
+                    
+                    if (distance > 20) {
+                    
+                        let alert = SCLAlertView()
+                    
+                        alert.addButton("Thanks for letting me know")
+                        {
+                            print("Thanks for letting me know")
+                        }
+                    
+                        alert.showCloseButton = false
+                        alert.showInfo("Already Canvassed!", subTitle:"This address has already     been canvassed! Look out for the gray or blue pins for addresses    available to canvass.\n\nGreen:canvassed\nBlue:Address confirmed    \nGrey:No activity yet.");
+                        return
+                    } else {
+                        self.performSegueWithIdentifier("CanvassVisit", sender: annotation)
+                    }
+                }
+            })*/
+        }
     }
     
     func addressToPin(address: Address) -> AddressPointAnnotation {

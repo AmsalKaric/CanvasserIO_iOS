@@ -17,7 +17,7 @@ class Turf: NSObject {
     var turf_description: String
     var turf_points: Int
     var turf_active: Int
-    var turf_bounds: [[String: Double]] = [[:]]
+    var turf_geom_polygon: [CLLocationCoordinate2D] = []
     var turf_addresses: [Address]
     
     override init() {
@@ -28,7 +28,6 @@ class Turf: NSObject {
         self.turf_description = ""
         self.turf_points = 0
         self.turf_active = 0
-        self.turf_bounds = [[:]]
         self.turf_addresses = []
         
         super.init()
@@ -44,14 +43,18 @@ class Turf: NSObject {
         self.turf_points = Int(turfJSON["points"].number!)
         self.turf_active = Int(turfJSON["active"].number!)
         
-        
-        self.turf_bounds = [[:]]
-        /*for (_, included) in turfJSON["turf_bounds"] {
-            var bound: [String:Double] = [:]
-            bound["latitude"] = Double(included["latitude"].number!)
-            bound["longitude"] = Double(included["longitude"].number!)
-            self.turf_bounds.append(bound)
-        }*/
+        for (_, included) in turfJSON["geom_polygon"] {
+            let latitude: CLLocationDegrees? = included["latitude"].numberValue as CLLocationDegrees?
+            let longitude: CLLocationDegrees? = included["longitude"].numberValue as CLLocationDegrees?
+            
+            if let latitude = latitude, let longitude = longitude {
+                let coordinate = CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude)
+                self.turf_geom_polygon.append(coordinate)
+            } else {
+                self.turf_geom_polygon = []
+                print("Error- turf polygon latitude/longitude not valid!")
+            }
+        }
         
         self.turf_addresses = []
     }
