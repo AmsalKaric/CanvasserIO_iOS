@@ -35,6 +35,8 @@ class Turf: NSObject {
     
     init(turfJSON: JSON) {
         
+        print(turfJSON)
+        
         self.turf_id = Int(turfJSON["id"].number!)
         self.turf_campaignId = Int(turfJSON["campaign_id"].number!)
         self.turf_geoJson = turfJSON["geo_json"].string!
