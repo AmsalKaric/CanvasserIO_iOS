@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F111A379A70CDAD18A0A037 /* Pods_GroundGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CDA176EC9C55807BADD7BDB /* Pods_GroundGameUITests.framework */; };
 		377BD5881C4CCB390091C8E4 /* field_offices_geocoded.json in Resources */ = {isa = PBXBuildFile; fileRef = 377BD5871C4CCB390091C8E4 /* field_offices_geocoded.json */; };
 		37F45DAE1BFD974500DC9CF3 /* AddressPointPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F45DAD1BFD974500DC9CF3 /* AddressPointPinAnnotation.swift */; };
 		4D494D391D2994F7003D52BB /* SelectCampaignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D494D381D2994F7003D52BB /* SelectCampaignViewController.swift */; };
@@ -19,10 +18,8 @@
 		4D9A557F1D32F79700BCD30C /* PositionsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A557E1D32F79700BCD30C /* PositionsService.swift */; };
 		4D9A55811D32F7ED00BCD30C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A55801D32F7ED00BCD30C /* Position.swift */; };
 		4DF94AC61CFCB46300D7BAFC /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF94AC51CFCB46300D7BAFC /* UserStore.swift */; };
-		5C933507A3A30D99FEC7C4FF /* Pods_FieldTheBernUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */; };
 		657470C51C254C10001F9CD9 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657470C41C254C10001F9CD9 /* AppVersionProvider.swift */; };
-		A06E333A8A8E8938C31E460D /* Pods_GroundGameTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A27CF52CE1820B9270610A4 /* Pods_GroundGameTests.framework */; };
-		A2BC6AF1ABF795AAAB2342EA /* Pods_FieldTheBernTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB941F82B84C769B26EA8E29 /* Pods_FieldTheBernTests.framework */; };
+		8169F6A50204EC2D39A2DE24 /* Pods_FieldTheBernTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47625D81629EB96EB9B44842 /* Pods_FieldTheBernTests.framework */; };
 		A71CC84F1BF3E9DB0097D433 /* SignUpFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71CC84E1BF3E9DB0097D433 /* SignUpFormViewController.swift */; };
 		A72479001BF513980002481A /* Toucan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72478FF1BF513980002481A /* Toucan.swift */; };
 		A72479021BF542920002481A /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72479011BF542920002481A /* Text.swift */; };
@@ -191,7 +188,7 @@
 		A7F4517F1BE53368004CECC2 /* LoadingAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4517E1BE53368004CECC2 /* LoadingAnimationViewController.swift */; };
 		A7F451811BE560BB004CECC2 /* AnimatedNavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F451801BE560BB004CECC2 /* AnimatedNavigationControllerDelegate.swift */; };
 		A7F451841BE561BA004CECC2 /* MapTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F451831BE561BA004CECC2 /* MapTransitionAnimator.swift */; };
-		A9040382566C74E41AE064FF /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ECA9EF8BB9F8F1DF72DE8C6 /* Pods.framework */; };
+		C78B8F07A9B94A452726C9DF /* Pods_FieldTheBernUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0FDE087DE63617C89E2A3C7 /* Pods_FieldTheBernUITests.framework */; };
 		DFE22E081BDBA417009565E1 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE22E071BDBA417009565E1 /* String.swift */; };
 /* End PBXBuildFile section */
 
@@ -213,13 +210,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0CDA176EC9C55807BADD7BDB /* Pods_GroundGameUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroundGameUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A27CF52CE1820B9270610A4 /* Pods_GroundGameTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GroundGameTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		217C2609B20D533862FCB48E /* Pods-GroundGameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundGameTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroundGameTests/Pods-GroundGameTests.release.xcconfig"; sourceTree = "<group>"; };
 		377BD5871C4CCB390091C8E4 /* field_offices_geocoded.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = field_offices_geocoded.json; sourceTree = "<group>"; };
 		37F45DAD1BFD974500DC9CF3 /* AddressPointPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPointPinAnnotation.swift; sourceTree = "<group>"; };
-		4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FieldTheBernUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D0F507249FDAB3717AABE70 /* Pods-GroundGameUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundGameUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroundGameUITests/Pods-GroundGameUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		387CEA9D77326F2D4979C35B /* Pods-FieldTheBernUITests.releasestaging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernUITests.releasestaging.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests.releasestaging.xcconfig"; sourceTree = "<group>"; };
+		47625D81629EB96EB9B44842 /* Pods_FieldTheBernTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FieldTheBernTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D494D381D2994F7003D52BB /* SelectCampaignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCampaignViewController.swift; sourceTree = "<group>"; };
 		4D494D3B1D29AAA2003D52BB /* Canvasser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvasser.swift; sourceTree = "<group>"; };
 		4D494D3D1D29B0DE003D52BB /* Campaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -230,8 +224,10 @@
 		4D9A55801D32F7ED00BCD30C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		4DF94AC51CFCB46300D7BAFC /* UserStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		4ECA9EF8BB9F8F1DF72DE8C6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		5C8ED1453922391CAAFB1556 /* Pods-FieldTheBernTests.releasestaging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernTests.releasestaging.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests.releasestaging.xcconfig"; sourceTree = "<group>"; };
 		657470C41C254C10001F9CD9 /* AppVersionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
+		65F388C5F2E51C62DE505027 /* Pods-FieldTheBernUITests.releaseproduction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernUITests.releaseproduction.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests.releaseproduction.xcconfig"; sourceTree = "<group>"; };
+		6C2028D5CE451E284DBCA75B /* Pods-FieldTheBernTests.debuglocal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernTests.debuglocal.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests.debuglocal.xcconfig"; sourceTree = "<group>"; };
 		A71CC84E1BF3E9DB0097D433 /* SignUpFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormViewController.swift; sourceTree = "<group>"; };
 		A72478FF1BF513980002481A /* Toucan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toucan.swift; sourceTree = "<group>"; };
 		A72479011BF542920002481A /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
@@ -386,11 +382,14 @@
 		A7F4517E1BE53368004CECC2 /* LoadingAnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewController.swift; sourceTree = "<group>"; };
 		A7F451801BE560BB004CECC2 /* AnimatedNavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedNavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		A7F451831BE561BA004CECC2 /* MapTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTransitionAnimator.swift; sourceTree = "<group>"; };
-		AB941F82B84C769B26EA8E29 /* Pods_FieldTheBernTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FieldTheBernTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		D54FDE31D71F322C7049D1CB /* Pods-GroundGameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundGameUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GroundGameUITests/Pods-GroundGameUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AF570CA21E37AB171EAC2179 /* Pods-FieldTheBernTests.releaseproduction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernTests.releaseproduction.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests.releaseproduction.xcconfig"; sourceTree = "<group>"; };
+		B0FDE087DE63617C89E2A3C7 /* Pods_FieldTheBernUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FieldTheBernUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B97F012EACA9A3C0A2ED287E /* Pods-FieldTheBernUITests.debugproduction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernUITests.debugproduction.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests.debugproduction.xcconfig"; sourceTree = "<group>"; };
+		BCE930FABCAE8B68EFF9B41D /* Pods-FieldTheBernTests.debugstaging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernTests.debugstaging.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests.debugstaging.xcconfig"; sourceTree = "<group>"; };
+		C62A01E3F83F180BAF4BC84A /* Pods-FieldTheBernUITests.debuglocal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernUITests.debuglocal.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests.debuglocal.xcconfig"; sourceTree = "<group>"; };
 		DFE22E071BDBA417009565E1 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		FCD56034328EFAB3F616C8A5 /* Pods-GroundGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundGameTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GroundGameTests/Pods-GroundGameTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EC58F88348E002949708B064 /* Pods-FieldTheBernUITests.debugstaging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernUITests.debugstaging.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests.debugstaging.xcconfig"; sourceTree = "<group>"; };
+		F424D93D2DA122E7D2D5F110 /* Pods-FieldTheBernTests.debugproduction.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FieldTheBernTests.debugproduction.xcconfig"; path = "Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests.debugproduction.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,7 +397,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9040382566C74E41AE064FF /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +404,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A06E333A8A8E8938C31E460D /* Pods_GroundGameTests.framework in Frameworks */,
-				A2BC6AF1ABF795AAAB2342EA /* Pods_FieldTheBernTests.framework in Frameworks */,
+				8169F6A50204EC2D39A2DE24 /* Pods_FieldTheBernTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,8 +412,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F111A379A70CDAD18A0A037 /* Pods_GroundGameUITests.framework in Frameworks */,
-				5C933507A3A30D99FEC7C4FF /* Pods_FieldTheBernUITests.framework in Frameworks */,
+				C78B8F07A9B94A452726C9DF /* Pods_FieldTheBernUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +423,8 @@
 			isa = PBXGroup;
 			children = (
 				4ECA9EF8BB9F8F1DF72DE8C6 /* Pods.framework */,
-				1A27CF52CE1820B9270610A4 /* Pods_GroundGameTests.framework */,
-				0CDA176EC9C55807BADD7BDB /* Pods_GroundGameUITests.framework */,
-				AB941F82B84C769B26EA8E29 /* Pods_FieldTheBernTests.framework */,
-				4BE98908DCF2EEE4657D47A3 /* Pods_FieldTheBernUITests.framework */,
+				47625D81629EB96EB9B44842 /* Pods_FieldTheBernTests.framework */,
+				B0FDE087DE63617C89E2A3C7 /* Pods_FieldTheBernUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -453,15 +447,19 @@
 			name = NewModels;
 			sourceTree = "<group>";
 		};
-		A5315A268882C6EDDEBA8834 /* Pods */ = {
+		A2928A7AEB491649AD7722FB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */,
-				50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */,
-				FCD56034328EFAB3F616C8A5 /* Pods-GroundGameTests.debug.xcconfig */,
-				217C2609B20D533862FCB48E /* Pods-GroundGameTests.release.xcconfig */,
-				4D0F507249FDAB3717AABE70 /* Pods-GroundGameUITests.debug.xcconfig */,
-				D54FDE31D71F322C7049D1CB /* Pods-GroundGameUITests.release.xcconfig */,
+				BCE930FABCAE8B68EFF9B41D /* Pods-FieldTheBernTests.debugstaging.xcconfig */,
+				F424D93D2DA122E7D2D5F110 /* Pods-FieldTheBernTests.debugproduction.xcconfig */,
+				6C2028D5CE451E284DBCA75B /* Pods-FieldTheBernTests.debuglocal.xcconfig */,
+				5C8ED1453922391CAAFB1556 /* Pods-FieldTheBernTests.releasestaging.xcconfig */,
+				AF570CA21E37AB171EAC2179 /* Pods-FieldTheBernTests.releaseproduction.xcconfig */,
+				EC58F88348E002949708B064 /* Pods-FieldTheBernUITests.debugstaging.xcconfig */,
+				B97F012EACA9A3C0A2ED287E /* Pods-FieldTheBernUITests.debugproduction.xcconfig */,
+				C62A01E3F83F180BAF4BC84A /* Pods-FieldTheBernUITests.debuglocal.xcconfig */,
+				387CEA9D77326F2D4979C35B /* Pods-FieldTheBernUITests.releasestaging.xcconfig */,
+				65F388C5F2E51C62DE505027 /* Pods-FieldTheBernUITests.releaseproduction.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -700,8 +698,8 @@
 				A7A579631BB092E100D8885E /* FieldTheBernTests */,
 				A7A5796E1BB092E100D8885E /* FieldTheBernUITests */,
 				30F76A0B0ACC05C453BE70FF /* Frameworks */,
-				A5315A268882C6EDDEBA8834 /* Pods */,
 				A7A5794D1BB092E100D8885E /* Products */,
+				A2928A7AEB491649AD7722FB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -838,12 +836,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A579741BB092E100D8885E /* Build configuration list for PBXNativeTarget "FieldTheBern" */;
 			buildPhases = (
-				10139E6C0B2CDCFDBC6C1823 /* Check Pods Manifest.lock */,
 				A7A579481BB092E100D8885E /* Sources */,
 				A7A579491BB092E100D8885E /* Frameworks */,
 				A7A5794A1BB092E100D8885E /* Resources */,
-				763ABEC8DF2BA228CB194899 /* Embed Pods Frameworks */,
-				E57C11B2C7F5767650378D3E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -858,12 +853,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A579771BB092E100D8885E /* Build configuration list for PBXNativeTarget "FieldTheBernTests" */;
 			buildPhases = (
-				1E12A86372F805E1C78A96DE /* Check Pods Manifest.lock */,
+				AF68AA476608F970D36D6449 /* [CP] Check Pods Manifest.lock */,
 				A7A5795C1BB092E100D8885E /* Sources */,
 				A7A5795D1BB092E100D8885E /* Frameworks */,
 				A7A5795E1BB092E100D8885E /* Resources */,
-				EFACCBF8CBF5CB7C8CC6BEC0 /* Embed Pods Frameworks */,
-				29548E4601E553D9408690CE /* Copy Pods Resources */,
+				448D7D35F64D0D735F29700B /* [CP] Embed Pods Frameworks */,
+				6BF82B07CCA7AFD896A5FE7A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -879,11 +874,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A7A5797A1BB092E100D8885E /* Build configuration list for PBXNativeTarget "FieldTheBernUITests" */;
 			buildPhases = (
-				429B55A5D5A292A439575FB6 /* Check Pods Manifest.lock */,
+				208E8091F2A3B1D1440B01A2 /* [CP] Check Pods Manifest.lock */,
 				A7A579671BB092E100D8885E /* Sources */,
 				A7A579681BB092E100D8885E /* Frameworks */,
 				A7A579691BB092E100D8885E /* Resources */,
-				DA2F5CFA62DA6EB96727F14A /* Copy Pods Resources */,
+				A3B77FDE4D1F4116395062CF /* [CP] Embed Pods Frameworks */,
+				F5133EAFDF3FCC520C93792C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -901,7 +897,7 @@
 		A7A579441BB092E100D8885E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Josh Smith";
 				TargetAttributes = {
 					A7A5794B1BB092E100D8885E = {
@@ -975,44 +971,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10139E6C0B2CDCFDBC6C1823 /* Check Pods Manifest.lock */ = {
+		208E8091F2A3B1D1440B01A2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		1E12A86372F805E1C78A96DE /* Check Pods Manifest.lock */ = {
+		448D7D35F64D0D735F29700B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		29548E4601E553D9408690CE /* Copy Pods Resources */ = {
+		6BF82B07CCA7AFD896A5FE7A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1020,79 +1016,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		429B55A5D5A292A439575FB6 /* Check Pods Manifest.lock */ = {
+		A3B77FDE4D1F4116395062CF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		763ABEC8DF2BA228CB194899 /* Embed Pods Frameworks */ = {
+		AF68AA476608F970D36D6449 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DA2F5CFA62DA6EB96727F14A /* Copy Pods Resources */ = {
+		F5133EAFDF3FCC520C93792C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FieldTheBernUITests/Pods-FieldTheBernUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E57C11B2C7F5767650378D3E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EFACCBF8CBF5CB7C8CC6BEC0 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FieldTheBernTests/Pods-FieldTheBernTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1320,7 +1286,6 @@
 /* Begin XCBuildConfiguration section */
 		A7A579731BB092E100D8885E /* ReleaseProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1368,7 +1333,6 @@
 		};
 		A7A579761BB092E100D8885E /* ReleaseProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1386,7 +1350,7 @@
 		};
 		A7A579791BB092E100D8885E /* ReleaseProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 217C2609B20D533862FCB48E /* Pods-GroundGameTests.release.xcconfig */;
+			baseConfigurationReference = AF570CA21E37AB171EAC2179 /* Pods-FieldTheBernTests.releaseproduction.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
@@ -1400,7 +1364,7 @@
 		};
 		A7A5797C1BB092E100D8885E /* ReleaseProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D54FDE31D71F322C7049D1CB /* Pods-GroundGameUITests.release.xcconfig */;
+			baseConfigurationReference = 65F388C5F2E51C62DE505027 /* Pods-FieldTheBernUITests.releaseproduction.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GroundGameUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1413,7 +1377,6 @@
 		};
 		A7A7BB971BDEC7E4004ED201 /* DebugStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1467,7 +1430,6 @@
 		};
 		A7A7BB981BDEC7E4004ED201 /* DebugStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1485,7 +1447,7 @@
 		};
 		A7A7BB991BDEC7E4004ED201 /* DebugStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCD56034328EFAB3F616C8A5 /* Pods-GroundGameTests.debug.xcconfig */;
+			baseConfigurationReference = BCE930FABCAE8B68EFF9B41D /* Pods-FieldTheBernTests.debugstaging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
@@ -1499,7 +1461,7 @@
 		};
 		A7A7BB9A1BDEC7E4004ED201 /* DebugStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D0F507249FDAB3717AABE70 /* Pods-GroundGameUITests.debug.xcconfig */;
+			baseConfigurationReference = EC58F88348E002949708B064 /* Pods-FieldTheBernUITests.debugstaging.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GroundGameUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1512,7 +1474,6 @@
 		};
 		A7A7BB9B1BDEC877004ED201 /* DebugLocal */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1566,7 +1527,6 @@
 		};
 		A7A7BB9C1BDEC877004ED201 /* DebugLocal */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1584,7 +1544,7 @@
 		};
 		A7A7BB9D1BDEC877004ED201 /* DebugLocal */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCD56034328EFAB3F616C8A5 /* Pods-GroundGameTests.debug.xcconfig */;
+			baseConfigurationReference = 6C2028D5CE451E284DBCA75B /* Pods-FieldTheBernTests.debuglocal.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
@@ -1598,7 +1558,7 @@
 		};
 		A7A7BB9E1BDEC877004ED201 /* DebugLocal */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D0F507249FDAB3717AABE70 /* Pods-GroundGameUITests.debug.xcconfig */;
+			baseConfigurationReference = C62A01E3F83F180BAF4BC84A /* Pods-FieldTheBernUITests.debuglocal.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GroundGameUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1611,7 +1571,6 @@
 		};
 		A7A7BB9F1BDED28E004ED201 /* ReleaseStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1665,7 +1624,6 @@
 		};
 		A7A7BBA01BDED28E004ED201 /* ReleaseStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50A2B029A7D297BFA4B3C786 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1683,7 +1641,7 @@
 		};
 		A7A7BBA11BDED28E004ED201 /* ReleaseStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 217C2609B20D533862FCB48E /* Pods-GroundGameTests.release.xcconfig */;
+			baseConfigurationReference = 5C8ED1453922391CAAFB1556 /* Pods-FieldTheBernTests.releasestaging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
@@ -1697,7 +1655,7 @@
 		};
 		A7A7BBA21BDED28E004ED201 /* ReleaseStaging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D54FDE31D71F322C7049D1CB /* Pods-GroundGameUITests.release.xcconfig */;
+			baseConfigurationReference = 387CEA9D77326F2D4979C35B /* Pods-FieldTheBernUITests.releasestaging.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GroundGameUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1710,7 +1668,6 @@
 		};
 		A7AD385D1C08D4D300A85666 /* DebugProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1764,7 +1721,6 @@
 		};
 		A7AD385E1C08D4D300A85666 /* DebugProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8F6BB2A414EA7D57834A66E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1782,7 +1738,7 @@
 		};
 		A7AD385F1C08D4D300A85666 /* DebugProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCD56034328EFAB3F616C8A5 /* Pods-GroundGameTests.debug.xcconfig */;
+			baseConfigurationReference = F424D93D2DA122E7D2D5F110 /* Pods-FieldTheBernTests.debugproduction.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEFINES_MODULE = YES;
@@ -1796,7 +1752,7 @@
 		};
 		A7AD38601C08D4D300A85666 /* DebugProduction */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D0F507249FDAB3717AABE70 /* Pods-GroundGameUITests.debug.xcconfig */;
+			baseConfigurationReference = B97F012EACA9A3C0A2ED287E /* Pods-FieldTheBernUITests.debugproduction.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = GroundGameUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
