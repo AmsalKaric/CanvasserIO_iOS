@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Spring
+//import Spring
 
 class IndividualScoreTableViewCell: UITableViewCell {
 

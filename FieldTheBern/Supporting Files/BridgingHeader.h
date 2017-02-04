@@ -9,10 +9,10 @@
 #ifndef BridgingHeader_h
 #define BridgingHeader_h
 
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <Heap/Heap.h>
-#import <Parse/Parse.h>
-#import <Bolts/Bolts.h>
+//#import <FBSDKCoreKit/FBSDKCoreKit.h>
+//#import <FBSDKLoginKit/FBSDKLoginKit.h>
+//#import <Heap/Heap.h>
+//#import <Parse/Parse.h>
+//#import <Bolts/Bolts.h>
 
 #endif /* BridgingHeader_h */

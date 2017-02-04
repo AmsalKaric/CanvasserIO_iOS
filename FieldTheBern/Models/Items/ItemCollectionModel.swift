@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class ItemCollectionModel: FTBItemModel {
     let items = List<ItemCollectionModel>()

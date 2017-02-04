@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FLAnimatedImage
+//import FLAnimatedImage
 
 class ScoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     

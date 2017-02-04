@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class PageModel: FTBItemModel {
     private var contentModels: [FTBContentModel]?

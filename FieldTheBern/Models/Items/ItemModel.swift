@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 let FTBItemModelPrimaryKey = "modelId"
 

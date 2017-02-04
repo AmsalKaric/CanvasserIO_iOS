@@ -7,11 +7,11 @@
 //
 
 import Foundation
-import p2_OAuth2
-import KeychainAccess
-import FBSDKLoginKit
-import Parse
-import SwiftyJSON
+//import p2_OAuth2
+//import KeychainAccess
+//import FBSDKLoginKit
+//import Parse
+//import SwiftyJSON
 
 enum SessionType {
     case Email, Facebook, Keychain, Reauthorization
@@ -20,7 +20,7 @@ enum SessionType {
 class Session {
     
     typealias SuccessResponse = (Bool) -> Void
-    typealias OAuth2Response = (wasFailure: Bool, error: NSError?) -> Void
+    //typealias OAuth2Response = (_ wasFailure: Bool, _ error: NSError?) -> Void
     
     static let sharedInstance = Session()
     
@@ -78,7 +78,7 @@ class Session {
         }
     }
     
-    private func authorizeWithFacebook(token token: FBSDKAccessToken, callback: SuccessResponse) {
+    private func authorizeWithFacebook(token: FBSDKAccessToken, callback: SuccessResponse) {
         //print(#function)
         
         // Reset other login information if this is a different facebook user
@@ -141,7 +141,7 @@ class Session {
         }
     }
         
-    private func authorizeWithFacebook(tokenString tokenString: String, callback: SuccessResponse) {
+    private func authorizeWithFacebook(tokenString: String, callback: SuccessResponse) {
         //print(#function)
         
         let api = API()

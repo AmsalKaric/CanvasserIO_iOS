@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RealmSwift
+//import RealmSwift
 
 class TopicsDownloadOperation: FTBOperation {
     var items = [FTBItemModel]()

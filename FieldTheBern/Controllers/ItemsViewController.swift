@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class ItemsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var queue = NSOperationQueue()

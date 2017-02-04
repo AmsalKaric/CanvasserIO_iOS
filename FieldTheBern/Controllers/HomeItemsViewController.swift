@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class HomeItemsViewController: ItemsViewController {
     var topicsReloaded = false
@@ -109,7 +109,7 @@ class HomeItemsViewController: ItemsViewController {
         
         for (key,value) in FTBConfig.MoreLinksMap {
             let linkAction = UIAlertAction(title: key, style: .Default, handler: { (action) -> Void in
-                guard let url = NSURL(string: value), _ = url.path else { return }
+                guard let url = NSURL(string: value), let _ = url.path else { return }
                 UIApplication.sharedApplication().openURL(url)
             })
             actionController.addAction(linkAction)

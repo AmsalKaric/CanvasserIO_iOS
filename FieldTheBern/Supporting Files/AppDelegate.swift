@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import KeychainAccess
-import XCGLogger
-import Parse
-import HockeySDK
+//import KeychainAccess
+//import XCGLogger
+//import Parse
+//import HockeySDK
 
 let log: XCGLogger = {
     let log = XCGLogger.defaultInstance()

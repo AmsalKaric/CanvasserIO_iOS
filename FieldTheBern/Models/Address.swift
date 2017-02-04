@@ -8,7 +8,7 @@
 
 import Foundation
 import MapKit
-import SwiftyJSON
+//import SwiftyJSON
 import UIKit
 
 struct Address {

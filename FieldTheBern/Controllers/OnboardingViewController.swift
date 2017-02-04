@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import p2_OAuth2
-import SwiftyJSON
+//import p2_OAuth2
+//import SwiftyJSON
 
 class OnboardingViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
 

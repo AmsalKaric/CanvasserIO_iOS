@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import p2_OAuth2
-import Alamofire
-import SwiftyJSON
+//åimport p2_OAuth2
+//import Alamofire
+//import SwiftyJSON
 
 typealias HTTPCallback = (Response<AnyObject, NSError>) -> Void
 

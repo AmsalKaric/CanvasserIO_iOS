@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import KFSwiftImageLoader
-import FBSDKShareKit
+//import KFSwiftImageLoader
+//import FBSDKShareKit
 import MessageUI
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CellButtonDelegate, FBSDKAppInviteDialogDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {

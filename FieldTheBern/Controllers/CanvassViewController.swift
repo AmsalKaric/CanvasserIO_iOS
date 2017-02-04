@@ -8,9 +8,9 @@
 
 import UIKit
 import MapKit
-import Dollar
-import SwiftyJSON
-import SCLAlertView
+//import Dollar
+//import SwiftyJSON
+//import SCLAlertView
 
 class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UIGestureRecognizerDelegate, pinCalloutDelegate {
     
@@ -635,7 +635,7 @@ class CanvassViewController: UIViewController, CLLocationManagerDelegate, MKMapV
         return Holder.timesCalled
     }
     
-    func fetchAddresses(onSuccess: ((success: Bool, errorTitle:String?, errorMessage:String?) -> Void)? = nil)  {
+    func fetchAddresses(onSuccess: ((_ success: Bool, _ errorTitle:String?, _ errorMessage:String?) -> Void)? = nil)  {
         if foo() > 1 {
             return
         }

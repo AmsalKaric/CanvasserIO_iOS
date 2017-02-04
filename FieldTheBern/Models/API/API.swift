@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
 class API {
     typealias APIResponse = (NSData?, Bool, APIError?) -> Void

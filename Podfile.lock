@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (3.1.4)
-  - Bolts (1.4.0):
-    - Bolts/AppLinks (= 1.4.0)
-    - Bolts/Tasks (= 1.4.0)
-  - Bolts/AppLinks (1.4.0):
+  - Alamofire (4.3.0)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/Tasks (1.4.0)
-  - Dollar (4.0.1)
+  - Bolts/Tasks (1.8.4)
+  - Dollar (6.1.0)
   - FBSDKCoreKit (4.8.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc (= 4.8.0)
@@ -20,30 +20,32 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.8.0):
     - FBSDKCoreKit
-  - FLAnimatedImage (1.0.8)
-  - Heap (2.2.0)
-  - HockeySDK (3.8.4):
-    - HockeySDK/AllFeaturesLib (= 3.8.4)
-  - HockeySDK/AllFeaturesLib (3.8.4)
-  - KeychainAccess (2.2.1)
+  - FLAnimatedImage (1.0.12)
+  - Heap (3.0.0)
+  - HockeySDK (4.1.3):
+    - HockeySDK/DefaultLib (= 4.1.3)
+  - HockeySDK/DefaultLib (4.1.3)
+  - KeychainAccess (3.0.1)
   - KFSwiftImageLoader (2.0.1)
   - Nimble (2.0.0)
-  - p2.OAuth2 (2.0.1)
-  - Parse (1.9.1):
-    - Bolts/Tasks (>= 1.4.0)
-  - Quick (0.6.0)
-  - Realm (0.96.2):
-    - Realm/Headers (= 0.96.2)
-  - Realm/Headers (0.96.2)
-  - RealmSwift (0.96.2):
-    - Realm (= 0.96.2)
-  - SCLAlertView (0.4.3)
+  - p2.OAuth2 (3.0.2)
+  - Parse (1.14.2):
+    - Bolts/Tasks (~> 1.8)
+  - Quick (1.0.0)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
+  - SCLAlertView (0.7.0)
   - Spring (1.0.3)
-  - SwiftyJSON (2.3.1)
-  - XCGLogger (3.0)
+  - SwiftyJSON (3.1.4)
+  - XCGLogger (4.0.0):
+    - XCGLogger/Core (= 4.0.0)
+  - XCGLogger/Core (4.0.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.1)
+  - Alamofire (~> 4.3)
   - Dollar
   - FBSDKCoreKit (= 4.8.0)
   - FBSDKLoginKit (= 4.8.0)
@@ -54,7 +56,7 @@ DEPENDENCIES:
   - KeychainAccess
   - KFSwiftImageLoader (~> 2.0)
   - Nimble (= 2.0.0)
-  - p2.OAuth2
+  - p2.OAuth2 (from `https://github.com/p2/OAuth2`)
   - Parse
   - Quick
   - RealmSwift
@@ -64,6 +66,9 @@ DEPENDENCIES:
   - XCGLogger
 
 EXTERNAL SOURCES:
+  p2.OAuth2:
+    :git: https://github.com/p2/OAuth2
+    :submodules: true
   Spring:
     :branch: swift2
     :git: https://github.com/MengTo/Spring.git
@@ -71,36 +76,40 @@ EXTERNAL SOURCES:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  p2.OAuth2:
+    :commit: 1e6eda572110cecf259a5393ba664711d67a3468
+    :git: https://github.com/p2/OAuth2
+    :submodules: true
   Spring:
     :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
     :git: https://github.com/MengTo/Spring.git
   SwiftyJSON:
-    :commit: 5f5d00dbdcd256600a250765d9f674964080ceee
+    :commit: adf34cfb4c9f2ff4e3c420c6d9fb1e2eaf3b3791
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
-  Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
-  Dollar: a058e2659e0d3261307c12630dbc2fd8e32f80bf
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Dollar: 0a9883680f2c1104adf0d19b827c3be71d3e3121
   FBSDKCoreKit: 66a935d17b6e00b6b64e604f2eb9b72c9ab7deb8
   FBSDKLoginKit: d893fcbb98d854496925e9ff73c67b896982d3c4
   FBSDKShareKit: e7577ee3adf80fc04fb656dd133fbb522250672b
-  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
-  Heap: 1f2735d88b2f39b2ddabd4cbeb7aa491aa737902
-  HockeySDK: 464a9eb01c42718515629d8d1d406983e5f855dc
-  KeychainAccess: 3b13c8264b5985dbaeaaf019a7941a912b5690c2
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Heap: b95bc7a21f47ddd470e8ebccefa59c91f4fe1d68
+  HockeySDK: 7dd8d7f5a4d71b7a5eebb320c8515cb22e99221b
+  KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   KFSwiftImageLoader: a2b8a33a89116c767e7af8d2c109e8c483037b19
   Nimble: 472e75466819eb8c06299233e87c694a9b51328a
-  p2.OAuth2: 6d4183a4dcec05cc6df3bab1110551854a116b9c
-  Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
-  Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
-  Realm: 3ce8448151c571e90b85002d984d7f93f54fc8a3
-  RealmSwift: 485599fe54e35461c4a0daa7d01d8fbf11424873
-  SCLAlertView: a5c726a80a938fd3127edd7dbc19da33fb936ca3
+  p2.OAuth2: 91dcda19e369a16afe9ca610548459009931f477
+  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
-  SwiftyJSON: 592b53bee5ef3dd9b3bebc6b9cb7ee35426ae8c3
-  XCGLogger: 5802533aff8bafc8b3b9776ab8972576f31d0a4e
+  SwiftyJSON: 05cf0e98a950e2ba343735264f5a96b81e755d00
+  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
 
-PODFILE CHECKSUM: 6955338968ee3be88bba83b386597d90050e836b
+PODFILE CHECKSUM: 8dfff053a02792aae5b6789df481a7b012ab1c61
 
 COCOAPODS: 1.2.0

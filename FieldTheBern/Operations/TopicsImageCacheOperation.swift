@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import RealmSwift
+//import RealmSwift
 
 class TopicsImageCacheOperation: FTBOperation {
     var size: CGSize

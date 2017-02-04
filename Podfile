@@ -1,7 +1,7 @@
 platform :ios, '8.2'
 
-pod 'p2.OAuth2'
-pod 'Alamofire', '~> 3.1'
+pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true
+pod 'Alamofire', '~> 4.3’
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'FBSDKCoreKit', '4.8.0'
 pod 'FBSDKLoginKit', '4.8.0'
